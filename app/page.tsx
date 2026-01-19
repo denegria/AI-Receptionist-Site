@@ -110,11 +110,12 @@ export default function LandingPage() {
           Never Miss Another HVAC Call <span className="text-cta block mt-2">Even After Hours</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-          We install a 24/7 AI receptionist that answers calls, books jobs, and notifies you via SMS — fully managed for you.
+          We install a 24/7 AI receptionist that answers calls, books jobs, and notifies you via SMS. <br className="hidden md:inline" />
+          <span className="font-bold text-slate-800">Try it 30 days, cancel anytime — no risk, only leads.</span>
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="#contact" className="w-full sm:w-auto bg-cta text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
-            Get Your AI Receptionist <span aria-hidden="true">→</span>
+            Start Your Risk-Free Pilot <span aria-hidden="true">→</span>
           </a>
           <div className="text-sm text-slate-500 font-medium flex items-center gap-2">
             <Clock className="w-4 h-4" /> 48-Hour Setup
@@ -152,25 +153,25 @@ export default function LandingPage() {
               {
                 icon: PhoneCall,
                 title: "Forwarding",
-                desc: "Calls after hours are automatically forwarded to the AI.",
+                desc: "Calls auto-forward to AI after hours.",
                 step: "01"
               },
               {
                 icon: Bot,
                 title: "AI Engagement",
-                desc: "AI answers, captures customer info, and identifies service needs.",
+                desc: "AI answers, captures info, and books jobs.",
                 step: "02"
               },
               {
                 icon: MessageSquare,
                 title: "Lead Dispatch",
-                desc: "You get an instant SMS with the call transcript and details.",
+                desc: "Instant SMS with transcript sent to you.",
                 step: "03"
               },
               {
                 icon: UserCheck,
                 title: "Human Fallback",
-                desc: "Human-in-the-Loop Safety: AI routes complex calls to humans so zero leads are lost.",
+                desc: "Unsure? AI routes to human. Zero lost leads.",
                 step: "04"
               }
             ].map((item, i) => (
@@ -202,16 +203,23 @@ export default function LandingPage() {
               { icon: MessageSquare, title: "AI Conversations", desc: "Natural, human-like dialogue trained on HVAC terminology." },
               { icon: Zap, title: "Instant SMS Alerts", desc: "Get notified immediately when a new lead is captured." },
               { icon: FileText, title: "Voicemail Transcripts", desc: "Read voicemail contents instead of listening to audio." },
-              { icon: ShieldAlert, title: "Reliable Fallbacks", desc: "Intelligent routing to humans if the AI gets stuck." },
+              { icon: ShieldAlert, title: "Reliable Fallbacks", desc: "Intelligent routing to humans if the AI gets stuck.", badge: "Safety First" },
               { icon: CheckCircle2, title: "White-Glove Setup", desc: "We handle the scripting, prompt tuning, and phone setup." },
-              { icon: UserCheck, title: "Spam Filtering", desc: "AI automatically screens out robocalls and solicitors." }
+              { icon: UserCheck, title: "Spam Filtering", desc: "AI automatically screens out robocalls and solicitors.", badge: "Save Time" }
             ].map((feature, i) => (
-              <div key={i} className="flex gap-4 p-6 rounded-2xl hover:bg-bg-gray transition-colors">
-                <div className="w-12 h-12 shrink-0 bg-orange-100 text-cta rounded-full flex items-center justify-center">
+              <div key={i} className="flex gap-4 p-6 rounded-2xl hover:bg-bg-gray transition-colors relative overflow-hidden group">
+                <div className="w-12 h-12 shrink-0 bg-orange-100 text-cta rounded-full flex items-center justify-center group-hover:bg-cta group-hover:text-white transition-colors duration-300">
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-headline font-bold text-lg mb-2">{feature.title}</h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="font-headline font-bold text-lg">{feature.title}</h3>
+                    {feature.badge && (
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                        {feature.badge}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-slate-600 text-sm">{feature.desc}</p>
                 </div>
               </div>
@@ -351,9 +359,23 @@ export default function LandingPage() {
           <div className="text-center md:text-right">
             <p>&copy; {new Date().getFullYear()} AI Receptionist Services. All rights reserved.</p>
             <p className="text-xs mt-1 text-slate-500">Call recording disclosure: Calls to our AI system may be monitored and recorded.</p>
+            <a href="#" className="hidden md:inline-block text-[10px] text-slate-300 hover:text-slate-400 mt-2 transition-colors">
+              Partner with us
+            </a>
           </div>
         </div>
       </footer>
+
+      {/* Mobile Sticky Bottom CTA */}
+      <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-40 flex items-center justify-between gap-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <div className="text-xs font-medium text-slate-500">
+          <span className="block font-bold text-slate-900 text-sm">30-Day Pilot</span>
+          No risk, cancel anytime.
+        </div>
+        <a href="#contact" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
+          Get Started
+        </a>
+      </div>
     </div>
   );
 }
