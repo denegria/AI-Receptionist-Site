@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #1E293B; /* Deep Navy */
+  --color-cta: #F97316; /* Safety Orange */
+  --color-bg-gray: #F9FAFB; /* Light Gray */
+  
+  --font-headline: var(--font-montserrat), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: var(--color-primary);
+}
