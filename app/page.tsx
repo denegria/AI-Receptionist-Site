@@ -75,10 +75,13 @@ export default function LandingPage() {
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2">
-                {isMenuOpen ? <X /> : <Menu />}
+            {/* Mobile Nav Controls */}
+            <div className="flex items-center gap-4 md:hidden">
+              <a href="#contact" className="bg-cta text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-orange-600 transition-all shadow-md shadow-orange-500/20">
+                Get Started
+              </a>
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600">
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
@@ -119,6 +122,20 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Social Proof / Trust Signals */}
+      <section className="py-10 border-y border-slate-50 bg-slate-50/50">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Trusted by Forward-Thinking HVAC Pros</p>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale">
+            {/* Placeholders for logos - using text for now to avoid image dependencies */}
+            <span className="font-headline text-xl font-bold text-slate-700">ServicePro</span>
+            <span className="font-headline text-xl font-bold text-slate-700">CoolAir Tech</span>
+            <span className="font-headline text-xl font-bold text-slate-700">HVAC Masters</span>
+            <span className="font-headline text-xl font-bold text-slate-700">ClimateRight</span>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section id="how-it-works" className="py-24 bg-bg-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -152,8 +169,8 @@ export default function LandingPage() {
               },
               {
                 icon: UserCheck,
-                title: "Safety",
-                desc: "Unsure? The AI triggers a fallback to ensure zero leads are lost.",
+                title: "Human Fallback",
+                desc: "Human-in-the-Loop Safety: AI routes complex calls to humans so zero leads are lost.",
                 step: "04"
               }
             ].map((item, i) => (
