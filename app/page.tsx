@@ -101,7 +101,12 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 max-w-7xl mx-auto text-center">
+      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 max-w-7xl mx-auto text-center relative overflow-hidden">
+        {/* Background Grid Pattern */}
+        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+          <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#bae6fd,transparent)] opacity-20"></div>
+        </div>
+
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-8">
           <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
           Now Live for HVAC Businesses
@@ -113,12 +118,28 @@ export default function LandingPage() {
           We install a 24/7 AI receptionist that answers calls, books jobs, and notifies you via SMS. <br className="hidden md:inline" />
           <span className="font-bold text-slate-800">Try it 30 days, cancel anytime — no risk, only leads.</span>
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="#contact" className="w-full sm:w-auto bg-cta text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
-            Start Your Risk-Free Pilot <span aria-hidden="true">→</span>
-          </a>
-          <div className="text-sm text-slate-500 font-medium flex items-center gap-2">
-            <Clock className="w-4 h-4" /> 48-Hour Setup
+
+        <div className="flex flex-col items-center gap-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+            <a href="#contact" className="w-full sm:w-auto bg-cta text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
+              Start Your Risk-Free Pilot <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          {/* Trust Stats Row */}
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-sm font-bold text-slate-600 bg-white/50 backdrop-blur-sm py-4 px-8 rounded-2xl border border-slate-100 shadow-sm">
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5 text-cta" />
+              <span>48-Hour Setup</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Bot className="w-5 h-5 text-cta" />
+              <span>24/7 Availability</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-cta" />
+              <span>100% Call Capture</span>
+            </div>
           </div>
         </div>
       </section>
