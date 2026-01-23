@@ -115,14 +115,14 @@ export default function LandingPage() {
           Never Miss Another HVAC Call <span className="text-cta block mt-2">Even After Hours</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-          We install a 24/7 AI receptionist that answers calls, books jobs, and notifies you via SMS. <br className="hidden md:inline" />
-          <span className="font-bold text-slate-800">Try it 30 days, cancel anytime — no risk, only leads.</span>
+          A modern replacement for voicemail and answering services, fully managed for you. <br className="hidden md:inline" />
+          <span className="font-bold text-slate-800">30-day risk-free pilot — no risk, only leads.</span>
         </p>
 
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
             <a href="#contact" className="w-full sm:w-auto bg-cta text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
-              Start Your Risk-Free Pilot <span aria-hidden="true">→</span>
+              Replace Your Answering Service <span aria-hidden="true">→</span>
             </a>
           </div>
 
@@ -254,8 +254,9 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="font-headline text-3xl md:text-4xl font-bold mb-4">Already Using an Answering Service?</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Most HVAC businesses have something in place—but they’re still frustrated. Here’s why they switch.
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+              Most HVAC companies don’t need more call coverage — they need more reliable call handling. <br className="hidden md:inline" />
+              Here’s why they switch.
             </p>
           </div>
 
@@ -293,8 +294,8 @@ export default function LandingPage() {
                 {[
                   "Every Call Answered: 24/7/365, zero wait times.",
                   "HVAC-Trained: Understands 'capacitor', 'compressor', and 'freon'.",
+                  "Consistency: Unlike services that rotate reps, every call follows the same HVAC-trained flow.",
                   "Instant Visibility: You get SMS transcripts immediately.",
-                  "Reliable Fallback: Voicemail + transcription + safety routing.",
                   "No Human Issues: No burnout, no attitude, no sick days."
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
@@ -327,7 +328,7 @@ export default function LandingPage() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a href="#contact" className="bg-cta text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/25">
-                Start Risk-Free Pilot
+                Replace Your Answering Service
               </a>
             </div>
             <p className="mt-6 text-slate-400 text-sm">
