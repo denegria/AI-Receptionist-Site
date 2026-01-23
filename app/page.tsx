@@ -375,13 +375,15 @@ export default function LandingPage() {
               </motion.div>
             ))}
           </div>
+
           <div className="flex flex-col items-center gap-6">
-            <a href="#contact" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow">
-              Start Your 30-Day Pilot Today
-            </a>
-            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
+            <div className="flex flex-col items-center gap-6">
+              <a href="#contact" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow">
+                Start Your 30-Day Pilot Today
+              </a>
+              <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
+            </div>
           </div>
-        </div>
       </section>
 
       {/* Social Proof / Testimonials */}
@@ -441,6 +443,8 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Pricing */}
+      {/* Pricing */}
       <section id="pricing" className="py-24 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
@@ -529,7 +533,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      {/* FAQ */}
+      < section className="py-24 bg-white" >
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <h2 className="font-headline text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-8">
@@ -546,7 +551,6 @@ export default function LandingPage() {
               <p className="text-slate-600">Not at all. This is a "No-Tech-Headache" service. We manage the infrastructure, updates, and maintenance. You just receive the leads.</p>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Footer / Contact */}
