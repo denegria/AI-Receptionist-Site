@@ -425,133 +425,135 @@ export default function LandingPage() {
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
           </div>
         </div>
-        {/* Social Proof / Testimonials */}
-        <section className="py-24 bg-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Don’t Take Our Word for It</h2>
-              <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Real HVAC businesses are replacing their call centers with AI.</p>
-            </motion.div>
+      </section>
 
-            <div className="grid md:grid-cols-2 gap-10 mb-20">
-              {[
-                {
-                  quote: "We used to miss urgent calls every week. Now every call is handled perfectly — it’s like having a technician awake 24/7!",
-                  author: "Mike Thompson",
-                  role: "Owner, Thompson Heat & Air"
-                },
-                {
-                  quote: "SMS alerts with full transcripts save us so much time. No more late-night call logs we have to decode.",
-                  author: "Sarah Chen",
-                  role: "Operations Manager, ClimatePros HVAC"
-                }
-              ].map((testimonial, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-slate-50 p-10 rounded-[40px] border border-slate-100 flex flex-col gap-8 relative overflow-hidden h-full"
-                >
-                  <div className="text-cta opacity-10 absolute top-4 right-8 font-black text-[120px] select-none text-right">"</div>
-                  <p className="text-xl text-primary font-bold leading-relaxed relative z-10 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="mt-auto">
-                    <div className="font-black text-lg text-primary">{testimonial.author}</div>
-                    <div className="text-slate-500 font-bold text-sm uppercase tracking-widest">{testimonial.role}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Social Proof / Testimonials */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Don’t Take Our Word for It</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Real HVAC businesses are replacing their call centers with AI.</p>
+          </motion.div>
 
-        {/* Pricing / CTA Section */}
-        <section id="pricing" className="py-24 bg-primary text-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Transparent Pricing — No Surprises</h2>
-              <p className="text-slate-400 max-w-2xl mx-auto text-lg font-medium">Everything included for a flat monthly fee. Cancel anytime.</p>
-            </motion.div>
-
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Comparison Table */}
+          <div className="grid md:grid-cols-2 gap-10 mb-20">
+            {[
+              {
+                quote: "We used to miss urgent calls every week. Now every call is handled perfectly — it’s like having a technician awake 24/7!",
+                author: "Mike Thompson",
+                role: "Owner, Thompson Heat & Air"
+              },
+              {
+                quote: "SMS alerts with full transcripts save us so much time. No more late-night call logs we have to decode.",
+                author: "Sarah Chen",
+                role: "Operations Manager, ClimatePros HVAC"
+              }
+            ].map((testimonial, i) => (
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white/5 border border-white/10 rounded-[40px] p-8 md:p-12 backdrop-blur-sm"
-              >
-                <h3 className="font-headline text-2xl font-black mb-8 text-center md:text-left">Current Setup vs. Our AI</h3>
-                <div className="space-y-6">
-                  {[
-                    { label: "Call Handling", old: "Missed details", new: "Full SMS + Transcript" },
-                    { label: "Reliability", old: "Human error", new: "Consistent Responses" },
-                    { label: "Availability", old: "Burnout risk", new: "Always On 24/7" },
-                    { label: "Cost", old: "Higher / Variable", new: "$247 / Month Flat" }
-                  ].map((row, i) => (
-                    <div key={i} className="grid grid-cols-3 gap-4 py-4 border-b border-white/5 last:border-0">
-                      <div className="text-slate-400 font-bold text-xs uppercase tracking-widest flex items-center">{row.label}</div>
-                      <div className="text-slate-500 text-sm font-medium flex items-center line-through decoration-slate-600">{row.old}</div>
-                      <div className="text-cta text-sm font-black flex items-center">{row.new}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Pricing Card */}
-              <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="max-w-lg mx-auto bg-white text-primary rounded-[40px] p-10 md:p-16 relative overflow-hidden shadow-2xl"
+                transition={{ delay: i * 0.1 }}
+                className="bg-slate-50 p-10 rounded-[40px] border border-slate-100 flex flex-col gap-8 relative overflow-hidden h-full"
               >
-                <h2 className="font-headline text-4xl font-black mb-4 tracking-tight">Flat Monthly Fee</h2>
-                <div className="flex items-baseline gap-2 mb-8">
-                  <span className="text-6xl font-black tracking-tighter">$247</span>
-                  <span className="text-slate-400 font-bold">/month</span>
-                </div>
-
-                <p className="text-slate-500 text-lg mb-10 pb-10 border-b border-slate-100 leading-relaxed font-medium">
-                  Flat fee for full after-hours coverage. <br />
-                  <span className="text-primary font-bold">30-day risk-free pilot included.</span>
+                <div className="text-cta opacity-10 absolute top-4 right-8 font-black text-[120px] select-none text-right">"</div>
+                <p className="text-xl text-primary font-bold leading-relaxed relative z-10 italic">
+                  "{testimonial.quote}"
                 </p>
-
-                <ul className="space-y-4 mb-12">
-                  {[
-                    "Fully Managed Service",
-                    "No Tech Headaches",
-                    "Cancel Anytime",
-                    "No Setup Fees"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-4 font-bold text-slate-700">
-                      <CheckCircle2 className="w-6 h-6 text-cta shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="space-y-4">
-                  <a href="#contact" className="block w-full text-center bg-cta text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow">
-                    Start Your 30-Day Pilot
-                  </a>
-                  <a href="#contact" className="block w-full text-center bg-white text-primary border-2 border-slate-100 px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-50 transition-all">
-                    Replace Your Answering Service
-                  </a>
+                <div className="mt-auto">
+                  <div className="font-black text-lg text-primary">{testimonial.author}</div>
+                  <div className="text-slate-500 font-bold text-sm uppercase tracking-widest">{testimonial.role}</div>
                 </div>
-            </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing / CTA Section */}
+      <section id="pricing" className="py-24 bg-primary text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Transparent Pricing — No Surprises</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg font-medium">Everything included for a flat monthly fee. Cancel anytime.</p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Comparison Table */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/5 border border-white/10 rounded-[40px] p-8 md:p-12 backdrop-blur-sm"
+            >
+              <h3 className="font-headline text-2xl font-black mb-8 text-center md:text-left">Current Setup vs. Our AI</h3>
+              <div className="space-y-6">
+                {[
+                  { label: "Call Handling", old: "Missed details", new: "Full SMS + Transcript" },
+                  { label: "Reliability", old: "Human error", new: "Consistent Responses" },
+                  { label: "Availability", old: "Burnout risk", new: "Always On 24/7" },
+                  { label: "Cost", old: "Higher / Variable", new: "$247 / Month Flat" }
+                ].map((row, i) => (
+                  <div key={i} className="grid grid-cols-3 gap-4 py-4 border-b border-white/5 last:border-0">
+                    <div className="text-slate-400 font-bold text-xs uppercase tracking-widest flex items-center">{row.label}</div>
+                    <div className="text-slate-500 text-sm font-medium flex items-center line-through decoration-slate-600">{row.old}</div>
+                    <div className="text-cta text-sm font-black flex items-center">{row.new}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Pricing Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="max-w-lg mx-auto bg-white text-primary rounded-[40px] p-10 md:p-16 relative overflow-hidden shadow-2xl"
+            >
+              <h2 className="font-headline text-4xl font-black mb-4 tracking-tight">Flat Monthly Fee</h2>
+              <div className="flex items-baseline gap-2 mb-8">
+                <span className="text-6xl font-black tracking-tighter">$247</span>
+                <span className="text-slate-400 font-bold">/month</span>
+              </div>
+
+              <p className="text-slate-500 text-lg mb-10 pb-10 border-b border-slate-100 leading-relaxed font-medium">
+                Flat fee for full after-hours coverage. <br />
+                <span className="text-primary font-bold">30-day risk-free pilot included.</span>
+              </p>
+
+              <ul className="space-y-4 mb-12">
+                {[
+                  "Fully Managed Service",
+                  "No Tech Headaches",
+                  "Cancel Anytime",
+                  "No Setup Fees"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-4 font-bold text-slate-700">
+                    <CheckCircle2 className="w-6 h-6 text-cta shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="space-y-4">
+                <a href="#contact" className="block w-full text-center bg-cta text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow">
+                  Start Your 30-Day Pilot
+                </a>
+                <a href="#contact" className="block w-full text-center bg-white text-primary border-2 border-slate-100 px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-50 transition-all">
+                  Replace Your Answering Service
+                </a>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -667,6 +669,6 @@ export default function LandingPage() {
           Get Started
         </a>
       </div>
-    </div>
+    </div >
   );
 }
