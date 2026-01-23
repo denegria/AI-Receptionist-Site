@@ -149,8 +149,9 @@ export default function LandingPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="font-headline text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] mb-10 tracking-tight text-gradient"
         >
-          Never Miss Another HVAC Call <span className="text-cta block mt-2 drop-shadow-sm">Even After Hours</span>
+          Never Miss Another HVAC Call <span className="text-cta block mt-2 drop-shadow-sm">— Even After Hours</span>
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,8 +159,7 @@ export default function LandingPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
         >
-          A modern replacement for voicemail and answering services, fully managed for you. <br className="hidden md:inline" />
-          <span className="text-primary font-bold">30-day risk-free pilot — no risk, only leads.</span>
+          A modern replacement for voicemail and answering services, fully managed for you.
         </motion.p>
 
         <motion.div
@@ -171,7 +171,10 @@ export default function LandingPage() {
         >
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center w-full">
             <a href="#contact" className="w-full sm:w-auto bg-cta text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
-              Replace Your Answering Service <PhoneCall className="w-5 h-5" />
+              Replace Your Answering Service <span aria-hidden="true">→</span>
+            </a>
+            <a href="#how-it-works" className="w-full sm:w-auto bg-white text-primary border-2 border-slate-100 px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-50 transition-all flex items-center justify-center gap-3">
+              See Why Companies Switch
             </a>
           </div>
 
@@ -307,158 +310,231 @@ export default function LandingPage() {
             className="text-center mb-20"
           >
             <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight text-gradient">Already Using an Answering Service?</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-xl font-medium">
-              Most HVAC companies don’t need more call coverage — they need more reliable call handling. <br className="hidden md:inline" />
-              Here’s why they switch.
+            <p className="text-slate-600 max-w-3xl mx-auto text-xl font-medium leading-relaxed">
+              Most HVAC companies already have voicemail, on-call technicians, or third-party answering services.
+              While they cover calls, they don't solve the real problems:
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-stretch mb-24">
-            {/* The Pain */}
+          {/* Pain Points Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-24">
+            {[
+              { title: "Rushed Calls", desc: "Calls are misclassified or rushed as reps try to clear queues." },
+              { title: "Emergency Gaps", desc: "Generic reps don't understand what constitutes a real HVAC emergency." },
+              { title: "Missed Details", desc: "Important customer details are lost, leading to wrong parts or wasted trips." },
+              { title: "Poor First Impression", desc: "Customers don't feel reassured and hang up to call the next company." },
+              { title: "Overwhelmed Techs", desc: "Wake up to sleep-deprived technicians who missed opportunities." }
+            ].map((pain, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm flex flex-col items-start gap-4"
+              >
+                <div className="w-10 h-10 bg-red-50 text-red-500 rounded-xl flex items-center justify-center">
+                  <X className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-headline font-black text-lg mb-2">{pain.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{pain.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mb-16">
+            <h3 className="font-headline text-3xl font-black mb-4">Why Companies Switch</h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            {[
+              { title: "Instant Answer", desc: "Every call is answered instantly, 24/7/365.", icon: Zap },
+              { title: "HVAC-Trained", desc: "Conversations handled by AI trained specifically for HVAC.", icon: Bot },
+              { title: "Instant Visibility", desc: "Get SMS notifications and full transcripts immediately.", icon: MessageSquare },
+              { title: "Smart Fallback", desc: "Complex calls automatically escalate to your team.", icon: UserCheck },
+              { title: "No Burnout", desc: "Replace sleep-deprived techs with tireless AI.", icon: ShieldAlert },
+              { title: "Professional Tone", desc: "Consistent, knowledgeable responses every single time.", icon: UserCheck }
+            ].map((benefit, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-primary/5 p-8 rounded-[32px] border border-primary/10 flex items-start gap-6 group hover:bg-primary/10 transition-all h-full"
+              >
+                <div className="w-12 h-12 bg-white text-primary rounded-xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
+                  <benefit.icon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-headline font-black text-lg mb-2">{benefit.title}</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">{benefit.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-6">
+              <a href="#contact" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow">
+                Start Your 30-Day Pilot Today
+              </a>
+              <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
+            </div>
+          </div>
+      </section>
+
+      {/* Social Proof / Testimonials */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Don't Take Our Word for It</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Real HVAC businesses are replacing their call centers with AI.</p>
+          </motion.div>
+
+          {/* Testimonial Cards */}
+          <div className="grid md:grid-cols-2 gap-10 mb-20">
+            {[
+              {
+                quote: "Before the AI, we were missing about 15% of our after-hours calls because our service was slow. Now, 100% are answered instantly. The lead info is so detailed our techs know exactly what they're walking into.",
+                author: "Mike Thompson",
+                role: "Owner, Thompson Heat & Air"
+              },
+              {
+                quote: "The biggest relief is no longer waking up to missed-call voicemails or generic messages from our answering service that missed half the details. It's like having a top-tier dispatcher who never sleeps.",
+                author: "Sarah Chen",
+                role: "Operations Manager, ClimatePros HVAC"
+              }
+            ].map((testimonial, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-bg-gray p-10 rounded-[40px] border border-slate-100 flex flex-col gap-8 relative overflow-hidden h-full"
+              >
+                <div className="text-cta opacity-10 absolute top-4 right-8 font-black text-[120px] select-none text-right">"</div>
+                <p className="text-xl text-primary font-bold leading-relaxed relative z-10 italic">
+                  "{testimonial.quote}"
+                </p>
+                <div className="mt-auto">
+                  <div className="font-black text-lg text-primary">{testimonial.author}</div>
+                  <div className="text-slate-500 font-bold text-sm uppercase tracking-widest">{testimonial.role}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Logos / Trust Signals */}
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+            <span className="font-headline text-2xl font-black">COOL AIR SQUAD</span>
+            <span className="font-headline text-2xl font-black">FAST FIX HVAC</span>
+            <span className="font-headline text-2xl font-black">ELITE CLIMATE</span>
+            <span className="font-headline text-2xl font-black">PRIME HEATING</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      {/* Pricing */}
+      <section id="pricing" className="py-24 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Transparent Pricing — No Surprises</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg font-medium">Everything included for a flat monthly fee. Cancel anytime.</p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Comparison Table */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-[32px] border border-slate-100 shadow-saas relative overflow-hidden"
+              className="bg-white/5 border border-white/10 rounded-[40px] p-8 md:p-12 backdrop-blur-sm"
             >
-              <div className="absolute top-0 left-0 w-2 h-full bg-slate-200"></div>
-              <h3 className="font-headline text-3xl font-black mb-8 text-slate-800 flex items-center gap-4">
-                <span className="p-3 bg-slate-100 rounded-2xl"><X className="w-6 h-6 text-slate-500" /></span>
-                The Old Way
-              </h3>
-              <ul className="space-y-6">
+              <h3 className="font-headline text-2xl font-black mb-8 text-center md:text-left">The Competition vs. AI Receptionist</h3>
+              <div className="space-y-6">
                 {[
-                  "Voicemail: 70% of customers hang up without leaving a message.",
-                  "On-Call Techs: Burnout, missed calls, and sleep deprivation.",
-                  "Answering Services: Generic reps who don't know HVAC and sound robotic.",
-                  "Inconsistency: Missed details leads to wrong parts or wasted trips."
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-4 text-slate-600 font-medium">
-                    <span className="mt-2 w-2 h-2 bg-slate-300 rounded-full shrink-0"></span>
-                    {item}
-                  </li>
+                  { label: "Call Handling", old: "Missed details", new: "Full SMS + Transcripts" },
+                  { label: "Reliability", old: "Human error/Burnout", new: "100% Consistent AI" },
+                  { label: "Availability", old: "Limited or extra fees", new: "True 24/7/365 Coverage" },
+                  { label: "Setup", old: "Weeks of training", new: "Live in 48 Hours" },
+                  { label: "Cost", old: "Variable & Hidden fees", new: "$247 / Month Flat" }
+                ].map((row, i) => (
+                  <div key={i} className="grid grid-cols-3 gap-4 py-4 border-b border-white/5 last:border-0">
+                    <div className="text-slate-400 font-bold text-xs uppercase tracking-widest flex items-center">{row.label}</div>
+                    <div className="text-slate-500 text-sm font-medium flex items-center line-through decoration-slate-600">{row.old}</div>
+                    <div className="text-cta text-sm font-black flex items-center">{row.new}</div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
 
-            {/* The Solution */}
+            {/* Pricing Card */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-[32px] border border-orange-100 shadow-xl shadow-orange-500/5 relative overflow-hidden ring-1 ring-orange-500/30"
+              className="max-w-lg mx-auto bg-white text-primary rounded-[40px] p-10 md:p-16 relative overflow-hidden shadow-2xl"
             >
-              <div className="absolute top-0 left-0 w-2 h-full bg-cta"></div>
-              <h3 className="font-headline text-3xl font-black mb-8 text-primary flex items-center gap-4">
-                <span className="p-3 bg-orange-100 rounded-2xl"><CheckCircle2 className="w-6 h-6 text-cta" /></span>
-                The AI Upgrade
-              </h3>
-              <ul className="space-y-6">
+              <div className="absolute top-0 right-0 bg-cta text-white text-[10px] font-black tracking-widest px-6 py-3 rounded-bl-3xl uppercase">
+                POPULAR
+              </div>
+
+              <h2 className="font-headline text-4xl font-black mb-4 tracking-tight">Standard Plan</h2>
+              <div className="flex items-baseline gap-2 mb-8">
+                <span className="text-6xl font-black tracking-tighter">$247</span>
+                <span className="text-slate-400 font-bold">/month</span>
+              </div>
+
+              <p className="text-slate-500 text-lg mb-10 pb-10 border-b border-slate-100 leading-relaxed font-medium">
+                Flat fee for full after-hours coverage. <br />
+                <span className="text-primary font-bold">30-day risk-free pilot included.</span>
+              </p>
+
+              <ul className="space-y-6 mb-12">
                 {[
-                  "Every Call Answered: 24/7/365, zero wait times.",
-                  "HVAC-Trained: Understands 'capacitor', 'compressor', and 'freon'.",
-                  "Consistency: Unlike services that rotate reps, every call follows the same content.",
-                  "Instant Visibility: You get SMS transcripts immediately.",
-                  "No Human Issues: No burnout, no attitude, no sick days."
+                  "24/7 Call Answering",
+                  "Instant SMS Lead Alerts",
+                  "HVAC-Specific AI Training",
+                  "Dedicated Local Number",
+                  "Spam & Robocall Filtering",
+                  "Live Handoff/Fallback Support"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-4 text-slate-800 font-bold">
+                  <li key={i} className="flex items-center gap-4 font-bold">
                     <CheckCircle2 className="w-6 h-6 text-cta shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
+
+              <a href="#contact" className="block w-full text-center bg-cta text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow">
+                Start Your 30-Day Pilot
+              </a>
+
+              <p className="text-center text-slate-400 text-sm mt-8 font-medium">
+                Cancel anytime. No lock-in contracts.
+              </p>
             </motion.div>
           </div>
-
-          {/* Switching Steps */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-primary rounded-[40px] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl"
-          >
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 -mr-24 -mt-24 w-80 h-80 bg-white/5 rounded-full blur-[100px]"></div>
-            <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 bg-cta/10 rounded-full blur-[100px]"></div>
-
-            <h3 className="font-headline text-3xl md:text-4xl font-black mb-12 tracking-tight">Switching is Simple</h3>
-            <div className="grid md:grid-cols-3 gap-8 mb-16 relative z-10">
-              {[
-                { title: "Step 01", desc: "Sign up for the 30-day pilot." },
-                { title: "Step 02", desc: "We set up your script & number in 48 hours." },
-                { title: "Step 03", desc: "Forward your calls. Done." }
-              ].map((step, i) => (
-                <div key={i} className="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-xl group hover:bg-white/10 transition-colors">
-                  <div className="text-cta font-black text-xs tracking-widest uppercase mb-4 opacity-80">{step.title}</div>
-                  <div className="font-bold text-xl leading-snug">{step.desc}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative z-10">
-              <a href="#contact" className="inline-block bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow">
-                Replace Your Answering Service
-              </a>
-              <p className="mt-8 text-slate-400 text-base font-medium">
-                Keep your existing number. Run alongside your current service to compare. <br className="hidden md:inline" />
-                <span className="text-white opacity-80">A modern replacement for voicemail and answering services — built specifically for HVAC.</span>
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="py-24 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-lg mx-auto bg-white/5 border border-white/10 backdrop-blur-sm rounded-[40px] p-10 md:p-16 relative overflow-hidden shadow-2xl"
-          >
-            <div className="absolute top-0 right-0 bg-cta text-white text-[10px] font-black tracking-widest px-6 py-3 rounded-bl-3xl uppercase">
-              POPULAR
-            </div>
-
-            <h2 className="font-headline text-4xl font-black mb-4 tracking-tight">Standard Plan</h2>
-            <div className="flex items-baseline gap-2 mb-8">
-              <span className="text-6xl font-black tracking-tighter">$247</span>
-              <span className="text-slate-400 font-bold">/month</span>
-            </div>
-
-            <p className="text-slate-300 text-lg mb-10 pb-10 border-b border-white/10 leading-relaxed font-medium">
-              Perfect for growing HVAC businesses wanting 24/7 coverage.
-            </p>
-
-            <ul className="space-y-6 mb-12">
-              {[
-                "24/7 Call Answering",
-                "Instant SMS Lead Alerts",
-                "Custom AI Training for Your Business",
-                "Dedicated Local Business Number",
-                "30-Day Pilot / Cancel Anytime"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-4 text-slate-100 font-bold">
-                  <CheckCircle2 className="w-6 h-6 text-cta shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <a href="#contact" className="block w-full text-center bg-white text-primary px-10 py-5 rounded-2xl font-black text-xl hover:bg-cta hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl">
-              Start Your Pilot
-            </a>
-
-            <p className="text-center text-slate-400 text-sm mt-8 font-medium">
-              Includes dedicated local number setup.
-            </p>
-          </motion.div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-white">
+      < section className="py-24 bg-white" >
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <h2 className="font-headline text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-8">
@@ -475,11 +551,10 @@ export default function LandingPage() {
               <p className="text-slate-600">Not at all. This is a "No-Tech-Headache" service. We manage the infrastructure, updates, and maintenance. You just receive the leads.</p>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Footer / Contact */}
-      <section id="contact" className="py-24 bg-bg-gray overflow-hidden">
+      <section id="contact" className="py-24 bg-slate-50">
         <div className="max-w-xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
