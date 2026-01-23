@@ -85,7 +85,6 @@ export default function LandingPage() {
               className="hidden md:flex items-center gap-8"
             >
               <a href="#how-it-works" className="text-sm font-semibold hover:text-cta transition-colors">How It Works</a>
-              <a href="#features" className="text-sm font-semibold hover:text-cta transition-colors">Features</a>
               <a href="#pricing" className="text-sm font-semibold hover:text-cta transition-colors">Pricing</a>
               <a href="#contact" className="bg-cta text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-cta-glow">
                 Get Started
@@ -115,7 +114,6 @@ export default function LandingPage() {
             >
               <div className="px-4 py-6 space-y-4">
                 <a href="#how-it-works" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>How It Works</a>
-                <a href="#features" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>Features</a>
                 <a href="#pricing" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>Pricing</a>
                 <a href="#contact" className="block w-full text-center bg-cta text-white px-5 py-3 rounded-xl font-bold shadow-cta-glow" onClick={() => setIsMenuOpen(false)}>
                   Get Started Now
@@ -213,7 +211,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Integrated How It Works & Features Flow */}
       <section id="how-it-works" className="py-24 bg-bg-gray overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
@@ -222,38 +220,43 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">How it Works</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">Seamless integration with your existing workflow.</p>
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">How It Works</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">A complete front-office automation built specifically for HVAC pros.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-8 relative">
-            {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 -z-10"></div>
-
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
+                step: "01",
+                title: "Forward Your After-Hours Calls",
+                benefit: "You never miss a call — even when your team is off the clock.",
+                features: ["Dedicated local phone number", "Fully managed setup in 48 hours", "No dashboards or tech to learn"],
                 icon: PhoneCall,
-                title: "Forwarding",
-                desc: "Calls auto-forward to AI after hours.",
-                step: "01"
+                color: "bg-blue-600"
               },
               {
+                step: "02",
+                title: "AI Engages the Caller",
+                benefit: "Every customer gets a professional interaction — first impression guaranteed.",
+                features: ["HVAC-specific conversation flow", "Natural voice, human-like responses", "Spam filtering to keep irrelevant calls out"],
                 icon: Bot,
-                title: "AI Engagement",
-                desc: "AI answers, captures info, and books jobs.",
-                step: "02"
+                color: "bg-primary"
               },
               {
-                icon: MessageSquare,
-                title: "Lead Dispatch",
-                desc: "Instant SMS with transcript sent to you.",
-                step: "03"
+                step: "03",
+                title: "Capture & Notify",
+                benefit: "You stay in control and can follow up immediately without missing revenue.",
+                features: ["Instant SMS alerts with customer info", "Voicemail + full transcript for context", "Leads stored securely for easy reference"],
+                icon: Zap,
+                color: "bg-cta"
               },
               {
+                step: "04",
+                title: "Human Fallback When Needed",
+                benefit: "No calls fall through the cracks, so you never lose a paying customer.",
+                features: ["Smart fallback to your team or operator", "Continuous learning for improved accuracy", "24/7 technical monitoring"],
                 icon: UserCheck,
-                title: "Human Fallback",
-                desc: "Unsure? AI routes to human. Zero lost leads.",
-                step: "04"
+                color: "bg-green-600"
               }
             ].map((item, i) => (
               <motion.div
@@ -262,65 +265,31 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white p-8 rounded-3xl shadow-saas border border-slate-100 relative group hover:shadow-xl transition-all duration-300"
+                className="bg-white p-10 rounded-[32px] shadow-saas border border-slate-100 relative group flex flex-col h-full"
               >
-                <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 text-xl font-bold shadow-lg shadow-slate-900/10 z-10 relative group-hover:bg-cta group-hover:scale-110 transition-all">
+                <div className={`w-14 h-14 ${item.color} text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg z-10 relative group-hover:scale-110 transition-transform`}>
                   <item.icon className="w-7 h-7" />
                 </div>
-                <div className="absolute top-8 right-8 text-7xl font-headline font-black text-slate-100 opacity-20 select-none group-hover:text-cta/10 transition-colors">
+
+                <div className="absolute top-8 right-10 text-7xl font-headline font-black text-slate-100 opacity-20 select-none group-hover:text-slate-200 transition-colors">
                   {item.step}
                 </div>
-                <h3 className="font-headline text-2xl font-black mb-4 tracking-tight">{item.title}</h3>
-                <p className="text-slate-600 text-base leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Features Grid */}
-      <section id="features" className="py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Built for Reliability</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Everything you need to automate your front desk.</p>
-          </motion.div>
+                <div className="flex-grow">
+                  <h3 className="font-headline text-2xl font-black mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-primary font-bold text-lg mb-6 leading-snug">{item.benefit}</p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { icon: MessageSquare, title: "AI Conversations", desc: "Natural, human-like dialogue trained on HVAC terminology." },
-              { icon: Zap, title: "Instant SMS Alerts", desc: "Get notified immediately when a new lead is captured." },
-              { icon: FileText, title: "Voicemail Transcripts", desc: "Read voicemail contents instead of listening to audio." },
-              { icon: ShieldAlert, title: "Reliable Fallbacks", desc: "Intelligent routing to humans if the AI gets stuck.", badge: "Safety First" },
-              { icon: CheckCircle2, title: "White-Glove Setup", desc: "We handle the scripting, prompt tuning, and phone setup." },
-              { icon: UserCheck, title: "Spam Filtering", desc: "AI automatically screens out robocalls and solicitors.", badge: "Save Time" }
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="flex gap-6 p-8 rounded-3xl hover:bg-bg-gray transition-all shadow-saas relative overflow-hidden group border border-transparent hover:border-slate-200"
-              >
-                <div className="w-14 h-14 shrink-0 bg-orange-100 text-cta rounded-2xl flex items-center justify-center group-hover:bg-cta group-hover:text-white transition-all duration-300 shadow-sm">
-                  <feature.icon className="w-7 h-7" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <h3 className="font-headline font-black text-xl tracking-tight">{feature.title}</h3>
-                    {feature.badge && (
-                      <span className="text-[10px] font-black uppercase tracking-wider bg-blue-100 text-blue-700 px-3 py-1 rounded-full shadow-sm">
-                        {feature.badge}
-                      </span>
-                    )}
+                  <div className="space-y-4 pt-6 border-t border-slate-50">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Features supporting this step:</p>
+                    <ul className="space-y-3">
+                      {item.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-slate-600 font-medium text-sm">
+                          <CheckCircle2 className="w-5 h-5 text-cta shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-slate-600 text-base leading-relaxed">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
