@@ -177,7 +177,7 @@ export default function LandingPage() {
                   Replace Your Answering Service <PhoneCall className="w-5 h-5" />
                 </a>
                 <a href="#how-it-works" className="bg-white text-primary border-2 border-slate-100 px-8 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 transition-all flex items-center justify-center">
-                  Start Free Pilot
+                  14-Day Guarantee
                 </a>
               </motion.div>
 
@@ -420,7 +420,7 @@ export default function LandingPage() {
 
           <div className="flex flex-col items-center gap-6">
             <a href="#contact" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow text-center">
-              Start Your 30-Day Pilot Today
+              Start Your 14-Day Risk-Free Trial
             </a>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
           </div>
@@ -528,7 +528,7 @@ export default function LandingPage() {
 
               <p className="text-slate-500 text-lg mb-10 pb-10 border-b border-slate-100 leading-relaxed font-medium">
                 Flat fee for full after-hours coverage. <br />
-                <span className="text-primary font-bold">30-day risk-free pilot included.</span>
+                <span className="text-primary font-bold">14-day money-back guarantee included.</span>
               </p>
 
               <ul className="space-y-4 mb-12">
@@ -547,7 +547,7 @@ export default function LandingPage() {
 
               <div className="space-y-4">
                 <a href="#contact" className="block w-full text-center bg-cta text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow">
-                  Start Your 30-Day Pilot
+                  14-Day Money-Back Guarantee
                 </a>
                 <a href="#contact" className="block w-full text-center bg-white text-primary border-2 border-slate-100 px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-50 transition-all">
                   Replace Your Answering Service
@@ -588,7 +588,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="bg-white rounded-[40px] shadow-2xl p-8 md:p-12 border border-slate-100"
           >
-            <h2 className="font-headline text-3xl font-black mb-4 text-center text-gradient">Start Your Risk-Free Pilot</h2>
+            <h2 className="font-headline text-3xl font-black mb-4 text-center text-gradient">14-Day Money-Back Guarantee</h2>
             <p className="text-center text-slate-600 mb-10 font-medium">Fill out the form below to begin your 48-hour setup.</p>
 
             {formStatus === "success" ? (
@@ -662,7 +662,7 @@ export default function LandingPage() {
       {/* Mobile Sticky Bottom CTA */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-40 flex items-center justify-between gap-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
         <div className="text-xs font-medium text-slate-500">
-          <span className="block font-bold text-slate-900 text-sm">30-Day Pilot</span>
+          <span className="block font-bold text-slate-900 text-sm">14-Day Guarantee</span>
           No risk, cancel anytime.
         </div>
         <a href="#contact" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
