@@ -249,6 +249,95 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Switching / Comparison Section */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold mb-4">Already Using an Answering Service?</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Most HVAC businesses have something in place—but they’re still frustrated. Here’s why they switch.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            {/* The Pain */}
+            <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-200"></div>
+              <h3 className="font-headline text-2xl font-bold mb-6 text-slate-800 flex items-center gap-3">
+                <span className="p-2 bg-slate-100 rounded-lg"><X className="w-5 h-5 text-slate-500" /></span>
+                The Old Way
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Voicemail: 70% of customers hang up without leaving a message.",
+                  "On-Call Techs: Burnout, missed calls, and sleep deprivation.",
+                  "Answering Services: Generic reps who don't know HVAC and sound robotic.",
+                  "Inconsistency: Missed details leads to wrong parts or wasted trips."
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-600">
+                    <span className="mt-1.5 w-1.5 h-1.5 bg-slate-400 rounded-full shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* The Solution */}
+            <div className="bg-white p-8 rounded-3xl border border-orange-100 shadow-lg shadow-orange-500/5 relative overflow-hidden ring-1 ring-orange-500/20">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-cta"></div>
+              <h3 className="font-headline text-2xl font-bold mb-6 text-primary flex items-center gap-3">
+                <span className="p-2 bg-orange-100 rounded-lg"><CheckCircle2 className="w-5 h-5 text-cta" /></span>
+                The AI Upgrade
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Every Call Answered: 24/7/365, zero wait times.",
+                  "HVAC-Trained: Understands 'capacitor', 'compressor', and 'freon'.",
+                  "Instant Visibility: You get SMS transcripts immediately.",
+                  "Reliable Fallback: Voicemail + transcription + safety routing.",
+                  "No Human Issues: No burnout, no attitude, no sick days."
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-cta shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Switching Steps */}
+          <div className="bg-primary rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+
+            <h3 className="font-headline text-2xl md:text-3xl font-bold mb-10">Switching is Simple</h3>
+            <div className="grid md:grid-cols-3 gap-8 mb-10 relative z-10">
+              {[
+                { title: "Step 1", desc: "Sign up for the 30-day pilot." },
+                { title: "Step 2", desc: "We set up your script & number in 48 hours." },
+                { title: "Step 3", desc: "Forward your calls. Done." }
+              ].map((step, i) => (
+                <div key={i} className="bg-white/10 p-6 rounded-2xl border border-white/5 backdrop-blur-sm">
+                  <div className="text-cta font-bold text-sm tracking-wider uppercase mb-2">{step.title}</div>
+                  <div className="font-bold text-lg">{step.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="#contact" className="bg-cta text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/25">
+                Start Risk-Free Pilot
+              </a>
+            </div>
+            <p className="mt-6 text-slate-400 text-sm">
+              Keep your existing number. Run alongside your current service to compare. <br className="hidden md:inline" />
+              A modern replacement for voicemail and answering services — built specifically for HVAC.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="pricing" className="py-24 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
