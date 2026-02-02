@@ -86,15 +86,15 @@ export default function LandingPage() {
             >
               <a href="#how-it-works" className="text-sm font-semibold hover:text-cta transition-colors">How It Works</a>
               <a href="#pricing" className="text-sm font-semibold hover:text-cta transition-colors">Pricing</a>
-              <a href="#contact" className="bg-cta text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-cta-glow">
-                Get Started
+              <a href="/sign-in" className="bg-cta text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-cta-glow">
+                Start Free Trial
               </a>
             </motion.div>
 
             {/* Mobile Nav Controls */}
             <div className="flex items-center gap-4 md:hidden">
-              <a href="#contact" className="bg-cta text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-orange-600 transition-all shadow-cta-glow">
-                Get Started
+              <a href="/sign-in" className="bg-cta text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-orange-600 transition-all shadow-cta-glow">
+                Start Trial
               </a>
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600 glass rounded-lg">
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -115,8 +115,8 @@ export default function LandingPage() {
               <div className="px-4 py-6 space-y-4">
                 <a href="#how-it-works" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>How It Works</a>
                 <a href="#pricing" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>Pricing</a>
-                <a href="#contact" className="block w-full text-center bg-cta text-white px-5 py-3 rounded-xl font-bold shadow-cta-glow" onClick={() => setIsMenuOpen(false)}>
-                  Get Started Now
+                <a href="/sign-in" className="block w-full text-center bg-cta text-white px-5 py-3 rounded-xl font-bold shadow-cta-glow" onClick={() => setIsMenuOpen(false)}>
+                  Start Free Trial Now
                 </a>
               </div>
             </motion.div>
@@ -173,8 +173,8 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-5 mb-12"
               >
-                <a href="#contact" className="bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
-                  Replace Your Answering Service <PhoneCall className="w-5 h-5" />
+                <a href="/sign-in" className="bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
+                  Start Your 14-Day Trial <Zap className="w-5 h-5" />
                 </a>
                 <a href="#how-it-works" className="bg-white text-primary border-2 border-slate-100 px-8 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 transition-all flex items-center justify-center">
                   14-Day Guarantee
@@ -198,42 +198,75 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Visual Element */}
+            {/* Right Visual Element: Glassmorphic Demo Card */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative hidden lg:block"
+              className="relative"
             >
-              <div className="relative rounded-[40px] overflow-hidden shadow-2xl border-4 border-slate-50 aspect-[4/5] bg-slate-100 flex items-center justify-center">
-                {/* Visual Placeholder for Technician/Homeowner interaction */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary to-slate-800 opacity-90 flex flex-col items-center justify-center p-12 text-center text-white">
-                  <PhoneCall className="w-20 h-20 mb-6 text-cta animate-pulse" />
-                  <h3 className="text-3xl font-black mb-4 uppercase tracking-tight">Your Team is Sleeping</h3>
-                  <p className="text-xl font-bold opacity-80">We're Answering.</p>
+              <div className="relative glass border-2 border-white/40 rounded-[40px] p-8 md:p-10 shadow-2xl overflow-hidden backdrop-blur-xl bg-white/10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cta/20 blur-3xl -z-10 animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 blur-3xl -z-10 animate-pulse"></div>
 
-                  {/* Floating Notification Mockup */}
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.5 }}
-                    className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[80%] bg-white rounded-2xl p-4 shadow-2xl border border-slate-100 text-slate-800 text-left flex items-start gap-4"
-                  >
-                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center shrink-0">
-                      <Zap className="w-6 h-6 text-green-600" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-cta/10 text-cta px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-cta/20 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-cta rounded-full animate-ping"></div>
+                    Hear It Live — Call Now
+                  </div>
+
+                  <h3 className="font-headline text-2xl font-black text-primary mb-2 italic">"Your AI Receptionist"</h3>
+                  <p className="text-slate-600 font-bold text-sm mb-8">Try it right now. No sign-up. No tricks.</p>
+
+                  <div className="w-full bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-white mb-8 group hover:border-cta/30 transition-all">
+                    <div className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-2">Demo Line</div>
+                    <div className="text-3xl md:text-4xl font-black text-primary mb-4 tracking-tight tabular-nums">
+                      (555) 321-DEMO
                     </div>
-                    <div>
-                      <p className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-1">New Lead Notification</p>
-                      <p className="text-sm font-black">Emergency AO Smith Repair</p>
-                      <p className="text-xs font-medium text-slate-500">123 Maple St - Needs Tech ASAP</p>
+                    <a
+                      href="tel:5553213366"
+                      className="w-full bg-green-500 text-white px-6 py-4 rounded-2xl font-black text-lg hover:bg-green-600 transition-all flex items-center justify-center gap-3 shadow-lg shadow-green-500/20 active:scale-95"
+                    >
+                      <PhoneCall className="w-6 h-6" />
+                      Tap to Call Now
+                    </a>
+                  </div>
+
+                  <div className="w-full">
+                    <p className="text-[10px] uppercase font-black tracking-[0.2em] text-slate-400 mb-4">Try these phrases:</p>
+                    <div className="grid grid-cols-1 gap-2">
+                      {[
+                        "Ask about a broken AC",
+                        "Schedule an appointment",
+                        "Report a gas leak",
+                        "Request a quote"
+                      ].map((prompt, i) => (
+                        <div
+                          key={i}
+                          className="bg-slate-50/50 border border-slate-100 py-2.5 px-4 rounded-xl text-xs font-black text-slate-600 hover:bg-white hover:border-cta/20 hover:text-cta transition-all cursor-default"
+                        >
+                          "{prompt}"
+                        </div>
+                      ))}
                     </div>
-                  </motion.div>
+                  </div>
+
+                  <div className="mt-8 pt-8 border-t border-slate-100 w-full flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    <div className="flex items-center gap-1.5">
+                      <Clock className="w-3 h-3 text-cta" />
+                      Avg Call: 47s
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Zap className="w-3 h-3 text-cta" />
+                      1,247 calls this week
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Decorative radial glow */}
-              <div className="absolute -top-20 -right-20 w-80 h-80 bg-cta/10 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+              {/* Decorative background glow */}
+              <div className="absolute -top-20 -right-20 w-80 h-80 bg-cta/10 rounded-full blur-[100px] -z-20 animate-pulse"></div>
             </motion.div>
           </div>
         </div>
@@ -419,7 +452,7 @@ export default function LandingPage() {
           </div>
 
           <div className="flex flex-col items-center gap-6">
-            <a href="#contact" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow text-center">
+            <a href="/sign-in" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow text-center">
               Start Your 14-Day Risk-Free Trial
             </a>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
@@ -476,7 +509,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing / CTA Section */}
-      <section id="pricing" className="py-24 bg-primary text-white overflow-hidden">
+      <section id="pricing" className="py-24 bg-slate-50 overflow-hidden border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -484,76 +517,107 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Transparent Pricing — No Surprises</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg font-medium">Everything included for a flat monthly fee. Cancel anytime.</p>
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight text-primary">Choose Your Coverage Level</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Both plans include a 14-day money-back guarantee.</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Comparison Table */}
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+            {/* Basic Tier */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white/5 border border-white/10 rounded-[40px] p-8 md:p-12 backdrop-blur-sm"
+              className="bg-white border border-slate-200 rounded-[40px] p-8 md:p-12 flex flex-col transition-all hover:shadow-xl"
             >
-              <h3 className="font-headline text-2xl font-black mb-8 text-center md:text-left">Current Setup vs. Our AI</h3>
-              <div className="space-y-6">
-                {[
-                  { label: "Call Handling", old: "Missed details", new: "Full SMS + Transcript" },
-                  { label: "Reliability", old: "Human error", new: "Consistent Responses" },
-                  { label: "Availability", old: "Burnout risk", new: "Always On 24/7" },
-                  { label: "Cost", old: "Higher / Variable", new: "$247 / Month Flat" }
-                ].map((row, i) => (
-                  <div key={i} className="grid grid-cols-3 gap-4 py-4 border-b border-white/5 last:border-0">
-                    <div className="text-slate-400 font-bold text-xs uppercase tracking-widest flex items-center">{row.label}</div>
-                    <div className="text-slate-500 text-sm font-medium flex items-center line-through decoration-slate-600">{row.old}</div>
-                    <div className="text-cta text-sm font-black flex items-center">{row.new}</div>
-                  </div>
-                ))}
+              <div className="mb-8">
+                <h3 className="font-headline text-2xl font-black mb-2 text-primary uppercase tracking-tight">Basic</h3>
+                <p className="text-slate-500 font-bold text-sm">After-hours protection for growing businesses</p>
               </div>
-            </motion.div>
 
-            {/* Pricing Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="max-w-lg mx-auto bg-white text-primary rounded-[40px] p-10 md:p-16 relative overflow-hidden shadow-2xl"
-            >
-              <h2 className="font-headline text-4xl font-black mb-4 tracking-tight">Flat Monthly Fee</h2>
-              <div className="flex items-baseline gap-2 mb-8">
-                <span className="text-6xl font-black tracking-tighter">$247</span>
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-5xl font-black tracking-tighter text-primary">$249</span>
                 <span className="text-slate-400 font-bold">/month</span>
               </div>
 
-              <p className="text-slate-500 text-lg mb-10 pb-10 border-b border-slate-100 leading-relaxed font-medium">
-                Flat fee for full after-hours coverage. <br />
-                <span className="text-primary font-bold">14-day money-back guarantee included.</span>
-              </p>
-
-              <ul className="space-y-4 mb-12">
+              <div className="space-y-4 mb-12 flex-grow">
                 {[
-                  "Fully Managed Service",
-                  "No Tech Headaches",
-                  "Cancel Anytime",
-                  "No Setup Fees"
+                  { text: "After-hours answering (6pm – 8am + weekends)", included: true },
+                  { text: "1 Calendar integration", included: true },
+                  { text: "SMS notifications", included: true },
+                  { text: "Full transcripts", included: true },
+                  { text: "Spam filtering", included: true },
+                  { text: "Human fallback", included: true },
+                  { text: "Sentiment Analysis", included: false },
+                  { text: "Priority Alerts", included: false },
+                  { text: "CRM Integration", included: false },
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 font-bold text-slate-700">
-                    <CheckCircle2 className="w-6 h-6 text-cta shrink-0" />
-                    {item}
-                  </li>
+                  <div key={i} className={`flex items-start gap-3 text-sm font-bold ${item.included ? "text-slate-700" : "text-slate-300"}`}>
+                    {item.included ? (
+                      <CheckCircle2 className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                    ) : (
+                      <X className="w-5 h-5 text-slate-200 shrink-0 mt-0.5" />
+                    )}
+                    <span className={!item.included ? "line-through decoration-slate-200" : ""}>{item.text}</span>
+                  </div>
                 ))}
-              </ul>
-
-              <div className="space-y-4">
-                <a href="#contact" className="block w-full text-center bg-cta text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow">
-                  14-Day Money-Back Guarantee
-                </a>
-                <a href="#contact" className="block w-full text-center bg-white text-primary border-2 border-slate-100 px-10 py-5 rounded-2xl font-black text-xl hover:bg-slate-50 transition-all">
-                  Replace Your Answering Service
-                </a>
               </div>
+
+              <a href="/sign-in" className="block w-full text-center bg-white text-primary border-2 border-slate-200 px-8 py-5 rounded-2xl font-black text-lg hover:border-primary hover:bg-slate-50 transition-all active:scale-95">
+                Start 14-Day Trial
+              </a>
             </motion.div>
+
+            {/* Full Tier */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white border-4 border-cta rounded-[40px] p-8 md:p-12 flex flex-col relative shadow-2xl scale-105 z-10"
+            >
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-cta text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg shadow-cta/20">
+                ★ Most Popular
+              </div>
+
+              <div className="mb-8">
+                <h3 className="font-headline text-2xl font-black mb-2 text-primary uppercase tracking-tight">Full</h3>
+                <p className="text-slate-500 font-bold text-sm">Complete coverage for serious HVAC operations</p>
+              </div>
+
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-5xl font-black tracking-tighter text-primary">$399</span>
+                <span className="text-slate-400 font-bold">/month</span>
+              </div>
+
+              <div className="space-y-4 mb-12 flex-grow">
+                {[
+                  { text: "24/7 Coverage (never off)", included: true },
+                  { text: "Multi-calendar support (techs, dispatch)", included: true },
+                  { text: "SMS + Email notifications", included: true },
+                  { text: "Full transcripts", included: true },
+                  { text: "Spam filtering", included: true },
+                  { text: "Human fallback", included: true },
+                  { text: "Sentiment Analysis (detect angry/urgent callers)", included: true },
+                  { text: "Priority Alerts (escalate high-value leads)", included: true },
+                  { text: "CRM Integration (ServiceTitan, Housecall Pro)", included: true },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 text-sm font-bold text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                    <span>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a href="/sign-in" className="block w-full text-center bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-cta-glow active:scale-95">
+                Start 14-Day Trial
+              </a>
+            </motion.div>
+          </div>
+
+          <div className="mt-20 text-center">
+            <p className="inline-flex items-center gap-2 text-slate-400 font-black uppercase tracking-[0.15em] text-[10px] glass py-3 px-6 rounded-full border border-slate-200/50">
+              <ShieldAlert className="w-4 h-4 text-cta" />
+              Both plans include: 48-hr setup • No contracts • Cancel anytime
+            </p>
           </div>
         </div>
       </section>
@@ -665,8 +729,8 @@ export default function LandingPage() {
           <span className="block font-bold text-slate-900 text-sm">14-Day Guarantee</span>
           No risk, cancel anytime.
         </div>
-        <a href="#contact" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
-          Get Started
+        <a href="/sign-in" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
+          Start Trial
         </a>
       </div>
     </div >
