@@ -176,9 +176,6 @@ export default function LandingPage() {
                 <a href="/sign-in" className="bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
                   Start Your 14-Day Trial <Zap className="w-5 h-5" />
                 </a>
-                <a href="#how-it-works" className="bg-white text-primary border-2 border-slate-100 px-8 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 transition-all flex items-center justify-center">
-                  14-Day Guarantee
-                </a>
               </motion.div>
 
               {/* Trust Stats Row */}
