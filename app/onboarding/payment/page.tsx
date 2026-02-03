@@ -59,7 +59,7 @@ export default function PaymentPage() {
   useEffect(() => {
     if (user) {
       // Create SetupIntent on mount
-      fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/onboarding/setup-intent`, {
+      fetch(`/api/proxy/onboarding/setup-intent`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

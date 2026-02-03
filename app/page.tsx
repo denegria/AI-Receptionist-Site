@@ -16,6 +16,44 @@ import {
   FileText
 } from "lucide-react";
 
+function PilotHeroCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-primary text-white rounded-[40px] p-8 md:p-16 mb-16 shadow-2xl relative overflow-hidden border border-white/10"
+    >
+      <div className="absolute top-0 right-0 p-8 opacity-10 -rotate-12 pointer-events-none">
+        <Zap size={200} />
+      </div>
+      <div className="relative z-10 text-center flex flex-col items-center">
+        <div className="bg-cta text-white px-6 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-8 shadow-lg">
+          Limited Pilot Program
+        </div>
+        <h3 className="font-headline text-4xl md:text-6xl font-black mb-6 tracking-tight">14-Day Pilot</h3>
+        <div className="flex items-baseline gap-2 mb-8">
+          <span className="text-7xl md:text-9xl font-black tracking-tighter text-white">$49</span>
+          <span className="text-xl md:text-2xl text-slate-400 font-bold">Total</span>
+        </div>
+        <p className="text-xl md:text-2xl font-medium mb-12 max-w-2xl text-slate-300 leading-relaxed">
+          Get <span className="text-white font-black">Full Access</span> to our HVAC-trained AI. 
+          We'll set everything up and handle your calls for 14 days. 
+          No commitment. No brainer.
+        </p>
+        
+        <a href="/sign-in" className="w-full sm:w-auto bg-cta text-white px-12 py-6 rounded-2xl font-black text-2xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow mb-8 flex items-center justify-center gap-3">
+          Start Your Pilot Now <Zap className="w-6 h-6 fill-current" />
+        </a>
+        
+        <a href="#full-plans" className="text-slate-400 hover:text-white text-base font-bold underline underline-offset-8 transition-colors">
+          Skip to Full Plans
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -512,76 +550,33 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-16"
           >
-            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight text-primary">Choose Your Coverage Level</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Both plans include a 14-day money-back guarantee.</p>
+            <h2 className="font-headline text-4xl md:text-6xl font-black mb-6 tracking-tight text-primary">Simple, No-BS Pricing</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-xl font-medium">Start with a 14-day pilot or jump straight into a full plan.</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
-            {/* Basic Tier */}
+          <PilotHeroCard />
+
+          <div id="full-plans" className="grid lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto scroll-mt-24">
+            {/* Full Tier (Best Value) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white border border-slate-200 rounded-[40px] p-8 md:p-12 flex flex-col transition-all hover:shadow-xl"
-            >
-              <div className="mb-8">
-                <h3 className="font-headline text-2xl font-black mb-2 text-primary uppercase tracking-tight">Basic</h3>
-                <p className="text-slate-500 font-bold text-sm">After-hours protection for growing businesses</p>
-              </div>
-
-              <div className="flex items-baseline gap-1 mb-8">
-                <span className="text-5xl font-black tracking-tighter text-primary">$249</span>
-                <span className="text-slate-400 font-bold">/month</span>
-              </div>
-
-              <div className="space-y-4 mb-12 flex-grow">
-                {[
-                  { text: "After-hours answering (6pm – 8am + weekends)", included: true },
-                  { text: "1 Calendar integration", included: true },
-                  { text: "SMS notifications", included: true },
-                  { text: "Full transcripts", included: true },
-                  { text: "Spam filtering", included: true },
-                  { text: "Human fallback", included: true },
-                  { text: "Sentiment Analysis", included: false },
-                  { text: "Priority Alerts", included: false },
-                  { text: "CRM Integration", included: false },
-                ].map((item, i) => (
-                  <div key={i} className={`flex items-start gap-3 text-sm font-bold ${item.included ? "text-slate-700" : "text-slate-300"}`}>
-                    {item.included ? (
-                      <CheckCircle2 className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                    ) : (
-                      <X className="w-5 h-5 text-slate-200 shrink-0 mt-0.5" />
-                    )}
-                    <span className={!item.included ? "line-through decoration-slate-200" : ""}>{item.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <a href="/sign-in" className="block w-full text-center bg-white text-primary border-2 border-slate-200 px-8 py-5 rounded-2xl font-black text-lg hover:border-primary hover:bg-slate-50 transition-all active:scale-95">
-                Start 14-Day Trial
-              </a>
-            </motion.div>
-
-            {/* Full Tier */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white border-4 border-cta rounded-[40px] p-8 md:p-12 flex flex-col relative shadow-2xl scale-105 z-10"
+              className="bg-white border-4 border-cta rounded-[40px] p-8 md:p-12 flex flex-col relative shadow-2xl z-10"
             >
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-cta text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg shadow-cta/20">
-                ★ Most Popular
+                ★ Best Value
               </div>
 
-              <div className="mb-8">
-                <h3 className="font-headline text-2xl font-black mb-2 text-primary uppercase tracking-tight">Full</h3>
+              <div className="mb-8 text-center sm:text-left">
+                <h3 className="font-headline text-3xl font-black mb-2 text-primary uppercase tracking-tight">Full Plan</h3>
                 <p className="text-slate-500 font-bold text-sm">Complete coverage for serious HVAC operations</p>
               </div>
 
-              <div className="flex items-baseline gap-1 mb-8">
-                <span className="text-5xl font-black tracking-tighter text-primary">$399</span>
+              <div className="flex items-baseline gap-1 mb-8 justify-center sm:justify-start">
+                <span className="text-6xl font-black tracking-tighter text-primary">$399</span>
                 <span className="text-slate-400 font-bold">/month</span>
               </div>
 
@@ -597,15 +592,60 @@ export default function LandingPage() {
                   { text: "Priority Alerts (escalate high-value leads)", included: true },
                   { text: "CRM Integration (ServiceTitan, Housecall Pro)", included: true },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 text-sm font-bold text-slate-700">
+                  <div key={i} className="flex items-start gap-3 text-base font-bold text-slate-700">
                     <CheckCircle2 className="w-5 h-5 text-cta shrink-0 mt-0.5" />
                     <span>{item.text}</span>
                   </div>
                 ))}
               </div>
 
-              <a href="/sign-in" className="block w-full text-center bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-cta-glow active:scale-95">
-                Start 14-Day Trial
+              <a href="/sign-in" className="block w-full text-center bg-cta text-white px-8 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 transition-all shadow-cta-glow active:scale-95">
+                Start Full Plan
+              </a>
+            </motion.div>
+
+            {/* Basic Tier (Muted) */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-slate-100/50 border border-slate-200 rounded-[40px] p-8 md:p-12 flex flex-col opacity-80"
+            >
+              <div className="mb-8 text-center sm:text-left">
+                <h3 className="font-headline text-2xl font-black mb-2 text-slate-500 uppercase tracking-tight">Basic Plan</h3>
+                <p className="text-slate-400 font-bold text-sm">After-hours protection for growing businesses</p>
+              </div>
+
+              <div className="flex items-baseline gap-1 mb-8 justify-center sm:justify-start">
+                <span className="text-5xl font-black tracking-tighter text-slate-500">$249</span>
+                <span className="text-slate-400 font-bold">/month</span>
+              </div>
+
+              <div className="space-y-4 mb-12 flex-grow">
+                {[
+                  { text: "After-hours answering (6pm – 8am + weekends)", included: true },
+                  { text: "1 Calendar integration", included: true },
+                  { text: "SMS notifications", included: true },
+                  { text: "Full transcripts", included: true },
+                  { text: "Spam filtering", included: true },
+                  { text: "Human fallback", included: true },
+                  { text: "Sentiment Analysis", included: false },
+                  { text: "Priority Alerts", included: false },
+                  { text: "CRM Integration", included: false },
+                ].map((item, i) => (
+                  <div key={i} className={`flex items-start gap-3 text-sm font-bold ${item.included ? "text-slate-500" : "text-slate-300"}`}>
+                    {item.included ? (
+                      <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
+                    ) : (
+                      <X className="w-5 h-5 text-slate-200 shrink-0 mt-0.5" />
+                    )}
+                    <span className={!item.included ? "line-through decoration-slate-200" : ""}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a href="/sign-in" className="block w-full text-center bg-white text-slate-500 border-2 border-slate-200 px-8 py-5 rounded-2xl font-black text-lg hover:border-slate-300 hover:bg-slate-50 transition-all active:scale-95">
+                Start Basic Plan
               </a>
             </motion.div>
           </div>
@@ -613,7 +653,7 @@ export default function LandingPage() {
           <div className="mt-20 text-center">
             <p className="inline-flex items-center gap-2 text-slate-400 font-black uppercase tracking-[0.15em] text-[10px] glass py-3 px-6 rounded-full border border-slate-200/50">
               <ShieldAlert className="w-4 h-4 text-cta" />
-              Both plans include: 48-hr setup • No contracts • Cancel anytime
+              All plans include: 48-hr setup • No contracts • Cancel anytime
             </p>
           </div>
         </div>

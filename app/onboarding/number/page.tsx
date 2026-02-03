@@ -26,7 +26,7 @@ export default function NumberSelectionPage() {
     e?.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/onboarding/search-numbers?areaCode=${areaCode}`);
+      const res = await fetch(`/api/proxy/onboarding/search-numbers?areaCode=${areaCode}`);
       const data = await res.json();
       setNumbers(data.numbers || []);
     } catch (err) {
@@ -45,7 +45,7 @@ export default function NumberSelectionPage() {
 
     setProvisioning(true);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/onboarding/provision`, {
+      const res = await fetch(`/api/proxy/onboarding/provision`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
