@@ -2,12 +2,32 @@ import React from 'react';
 import { Users, PhoneCall, DollarSign, Activity } from 'lucide-react';
 import { SystemHealthCard } from '@/components/admin/SystemHealthCard';
 import { ActivityFeed } from '@/components/admin/ActivityFeed';
+import { supabase } from '@/lib/supabase';
 
-const AdminDashboardPage = () => {
+export const dynamic = 'force-dynamic';
+
+const AdminDashboardPage = async () => {
+  // Fetch Total Clients
+  const { count: totalClients } = await supabase
+    .from('clients')
+    .select('*', { count: 'exact', head: true });
+
+  // Fetch Active Calls Today
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const { count: activeCalls } = await supabase
+    .from('call_logs')
+    .select('*', { count: 'exact', head: true })
+    .gte('created_at', today.toISOString());
+
+  // Calculate Revenue - Mocking based on client count since tiers aren't in schema yet
+  // Using $249 as a baseline
+  const revenueValue = (totalClients || 0) * 249;
+
   const stats = [
-    { label: 'Total Clients', value: '124', icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
-    { label: 'Active Calls Today', value: '42', icon: PhoneCall, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-    { label: 'Total Revenue', value: '$32,450', icon: DollarSign, color: 'text-purple-600', bg: 'bg-purple-50' },
+    { label: 'Total Clients', value: totalClients?.toString() || '0', icon: Users, color: 'text-blue-600', bg: 'bg-blue-50' },
+    { label: 'Active Calls Today', value: activeCalls?.toString() || '0', icon: PhoneCall, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+    { label: 'Total Revenue', value: `$${revenueValue.toLocaleString()}`, icon: DollarSign, color: 'text-purple-600', bg: 'bg-purple-50' },
     { label: 'System Health', value: '99.9%', icon: Activity, color: 'text-amber-600', bg: 'bg-amber-50' },
   ];
 

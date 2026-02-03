@@ -1,5 +1,8 @@
-import React from 'react';
-import { MoreHorizontal, Eye, Edit2, Ban, ShieldCheck, Shield } from 'lucide-react';
+"use client";
+
+import React, { useState } from 'react';
+import { MoreHorizontal, Eye, Edit2, Ban, ShieldCheck, Shield, Loader2 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 interface Client {
   id: string;
@@ -10,40 +13,9 @@ interface Client {
   callsThisMonth: number;
 }
 
-const clients: Client[] = [
-  {
-    id: '1',
-    businessName: 'Elite Law Firm',
-    phone: '+1 (555) 123-4567',
-    status: 'active',
-    tier: '$399',
-    callsThisMonth: 142,
-  },
-  {
-    id: '2',
-    businessName: 'Downtown Dental',
-    phone: '+1 (555) 987-6543',
-    status: 'trial',
-    tier: '$249',
-    callsThisMonth: 12,
-  },
-  {
-    id: '3',
-    businessName: 'Ace Automotive',
-    phone: '+1 (555) 555-0199',
-    status: 'suspended',
-    tier: '$249',
-    callsThisMonth: 0,
-  },
-  {
-    id: '4',
-    businessName: 'Luxe Real Estate',
-    phone: '+1 (555) 777-8888',
-    status: 'active',
-    tier: '$399',
-    callsThisMonth: 89,
-  },
-];
+interface ClientsTableProps {
+  initialClients: Client[];
+}
 
 const StatusBadge = ({ status }: { status: Client['status'] }) => {
   const styles = {
@@ -69,7 +41,33 @@ const TierBadge = ({ tier }: { tier: Client['tier'] }) => {
   );
 };
 
-export const ClientsTable = () => {
+export const ClientsTable = ({ initialClients }: ClientsTableProps) => {
+  const [clients, setClients] = useState<Client[]>(initialClients);
+  const [loadingId, setLoadingId] = useState<string | null>(null);
+
+  const toggleSuspend = async (client: Client) => {
+    const newStatus = client.status === 'suspended' ? 'active' : 'suspended';
+    setLoadingId(client.id);
+
+    try {
+      const { error } = await supabase
+        .from('clients')
+        .update({ status: newStatus })
+        .eq('id', client.id);
+
+      if (error) throw error;
+
+      setClients(prev => prev.map(c => 
+        c.id === client.id ? { ...c, status: newStatus } : c
+      ));
+    } catch (err) {
+      console.error('Failed to update client status:', err);
+      alert('Failed to update status');
+    } finally {
+      setLoadingId(null);
+    }
+  };
+
   return (
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
       <div className="overflow-x-auto">
@@ -110,8 +108,21 @@ export const ClientsTable = () => {
                     <button className="p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" title="Edit">
                       <Edit2 className="w-4 h-4" />
                     </button>
-                    <button className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Suspend">
-                      <Ban className="w-4 h-4" />
+                    <button 
+                      className={`p-1.5 rounded-lg transition-colors ${
+                        client.status === 'suspended' 
+                          ? 'text-emerald-600 hover:bg-emerald-50' 
+                          : 'text-slate-400 hover:text-rose-600 hover:bg-rose-50'
+                      }`}
+                      title={client.status === 'suspended' ? 'Activate' : 'Suspend'}
+                      onClick={() => toggleSuspend(client)}
+                      disabled={loadingId === client.id}
+                    >
+                      {loadingId === client.id ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Ban className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </td>
@@ -120,6 +131,11 @@ export const ClientsTable = () => {
           </tbody>
         </table>
       </div>
+      {clients.length === 0 && (
+        <div className="py-12 text-center text-slate-500 text-sm">
+          No clients found.
+        </div>
+      )}
     </div>
   );
 };

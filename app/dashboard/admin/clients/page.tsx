@@ -1,8 +1,30 @@
 import React from 'react';
 import { Plus, Search, Filter } from 'lucide-react';
 import { ClientsTable } from '@/components/admin/ClientsTable';
+import { supabase } from '@/lib/supabase';
 
-const ClientManagementPage = () => {
+export const dynamic = 'force-dynamic';
+
+const ClientManagementPage = async () => {
+  const { data: clientsData, error } = await supabase
+    .from('clients')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching clients:', error);
+  }
+
+  // Transform DB data to UI format
+  const clients = (clientsData || []).map(client => ({
+    id: client.id,
+    businessName: client.business_name,
+    phone: client.phone_number,
+    status: client.status as 'active' | 'trial' | 'suspended',
+    tier: '$249' as const, // Default since not in schema
+    callsThisMonth: 0, // We could fetch this with a separate query or join if needed
+  }));
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -38,7 +60,7 @@ const ClientManagementPage = () => {
         </div>
       </div>
 
-      <ClientsTable />
+      <ClientsTable initialClients={clients} />
     </div>
   );
 };

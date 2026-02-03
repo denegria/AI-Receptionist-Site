@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { 
   LayoutDashboard, 
   Phone, 
@@ -30,8 +30,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user } = useUser();
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/dashboard/admin");
+  const isAdmin = (user?.publicMetadata as any)?.role === 'org:admin';
 
   return (
     <div className={cn(
@@ -69,37 +71,39 @@ export default function DashboardLayout({
               </Link>
             ))}
           </nav>
-          <div className="mt-4 pt-4 border-t border-slate-100">
-             <Link
-                href="/dashboard/admin"
-                className={cn(
-                  "group flex items-center rounded-md px-2 py-2 text-sm font-medium transition-colors",
-                  pathname.startsWith("/dashboard/admin")
-                    ? "bg-slate-100 text-slate-900"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+          {isAdmin && (
+            <div className="mt-4 pt-4 border-t border-slate-100">
+              <Link
+                  href="/dashboard/admin"
+                  className={cn(
+                    "group flex items-center rounded-md px-2 py-2 text-sm font-medium transition-colors",
+                    pathname.startsWith("/dashboard/admin")
+                      ? "bg-slate-100 text-slate-900"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                  )}
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <ShieldCheck className="mr-3 h-5 w-5 flex-shrink-0" />
+                  Admin
+                </Link>
+                {isAdminRoute && (
+                  <div className="ml-8 mt-1 space-y-1">
+                    <Link
+                      href="/dashboard/admin/clients"
+                      className={cn(
+                        "group flex items-center rounded-md px-2 py-1.5 text-xs font-medium transition-colors",
+                        pathname === "/dashboard/admin/clients"
+                          ? "text-indigo-600 bg-indigo-50"
+                          : "text-slate-500 hover:text-slate-900"
+                      )}
+                      onClick={() => setSidebarOpen(false)}
+                    >
+                      Client Management
+                    </Link>
+                  </div>
                 )}
-                onClick={() => setSidebarOpen(false)}
-              >
-                <ShieldCheck className="mr-3 h-5 w-5 flex-shrink-0" />
-                Admin
-              </Link>
-              {isAdminRoute && (
-                <div className="ml-8 mt-1 space-y-1">
-                  <Link
-                    href="/dashboard/admin/clients"
-                    className={cn(
-                      "group flex items-center rounded-md px-2 py-1.5 text-xs font-medium transition-colors",
-                      pathname === "/dashboard/admin/clients"
-                        ? "text-indigo-600 bg-indigo-50"
-                        : "text-slate-500 hover:text-slate-900"
-                    )}
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Client Management
-                  </Link>
-                </div>
-              )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -132,40 +136,43 @@ export default function DashboardLayout({
               </Link>
             ))}
           </nav>
-          <div className="px-4 py-4 border-t">
-             <Link
-                href="/dashboard/admin"
-                className={cn(
-                  "group flex items-center rounded-md px-2 py-2 text-sm font-medium transition-colors",
-                  pathname.startsWith("/dashboard/admin")
-                    ? "bg-slate-200 text-slate-900 shadow-sm"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+          {isAdmin && (
+            <div className="px-4 py-4 border-t">
+              <Link
+                  href="/dashboard/admin"
+                  className={cn(
+                    "group flex items-center rounded-md px-2 py-2 text-sm font-medium transition-colors",
+                    pathname.startsWith("/dashboard/admin")
+                      ? "bg-slate-200 text-slate-900 shadow-sm"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                  )}
+                >
+                  <ShieldCheck className={cn(
+                    "mr-3 h-5 w-5 flex-shrink-0 transition-colors",
+                    pathname.startsWith("/dashboard/admin") ? "text-slate-900" : "text-gray-400 group-hover:text-gray-500"
+                  )} />
+                  Admin
+                </Link>
+                {isAdminRoute && (
+                  <div className="ml-8 mt-1 space-y-1">
+                    <Link
+                      href="/dashboard/admin/clients"
+                      className={cn(
+                        "group flex items-center rounded-md px-2 py-1.5 text-xs font-medium transition-colors",
+                        pathname === "/dashboard/admin/clients"
+                          ? "text-indigo-600 bg-indigo-50"
+                          : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                      )}
+                    >
+                      Client Management
+                    </Link>
+                  </div>
                 )}
-              >
-                <ShieldCheck className={cn(
-                  "mr-3 h-5 w-5 flex-shrink-0 transition-colors",
-                  pathname.startsWith("/dashboard/admin") ? "text-slate-900" : "text-gray-400 group-hover:text-gray-500"
-                )} />
-                Admin
-              </Link>
-              {isAdminRoute && (
-                <div className="ml-8 mt-1 space-y-1">
-                  <Link
-                    href="/dashboard/admin/clients"
-                    className={cn(
-                      "group flex items-center rounded-md px-2 py-1.5 text-xs font-medium transition-colors",
-                      pathname === "/dashboard/admin/clients"
-                        ? "text-indigo-600 bg-indigo-50"
-                        : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
-                    )}
-                  >
-                    Client Management
-                  </Link>
-                </div>
-              )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
+
 
       {/* Main content */}
       <div className="lg:pl-64">
