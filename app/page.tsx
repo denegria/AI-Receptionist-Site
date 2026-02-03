@@ -153,7 +153,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="font-headline text-5xl md:text-7xl lg:text-7xl font-black leading-[1.05] mb-8 tracking-tight text-gradient"
               >
-                Never Miss Another HVAC Call — <span className="text-cta block mt-2 drop-shadow-sm">Even After Hours</span>
+                Stop Losing $10,000/Month to Missed Calls
               </motion.h1>
 
               <motion.p
@@ -163,7 +163,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed font-medium"
               >
-                A modern replacement for voicemail and answering services, fully managed for you.
+                Your front desk is burning money while you sleep. We stop the bleeding—tonight.
               </motion.p>
 
               <motion.div
@@ -214,7 +214,7 @@ export default function LandingPage() {
                   </div>
 
                   <h3 className="font-headline text-2xl font-black text-primary mb-2 italic">"Your AI Receptionist"</h3>
-                  <p className="text-slate-600 font-bold text-sm mb-8">Try it right now. No sign-up. No tricks.</p>
+                  <p className="text-slate-600 font-bold text-sm mb-8">Call (555) 321-DEMO and Treat Us Like a Pissed-Off Customer.</p>
 
                   <div className="w-full bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-white mb-8 group hover:border-cta/30 transition-all">
                     <div className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-2">Demo Line</div>
@@ -303,7 +303,7 @@ export default function LandingPage() {
             {[
               {
                 step: "01",
-                title: "Forward Your Calls",
+                title: "Stop Bleeding Revenue",
                 benefit: "Never miss a call — even when your team is off the clock.",
                 features: ["Dedicated number", "Live in 48 hours", "Fully managed", "No dashboard needed"],
                 icon: PhoneCall,
@@ -311,7 +311,7 @@ export default function LandingPage() {
               },
               {
                 step: "02",
-                title: "AI Engages Caller",
+                title: "Never Sound Desperate Again",
                 benefit: "Every customer gets a professional, HVAC-trained first impression.",
                 features: ["Natural voice", "Spam filtering", "Accurate triage", "Human-like empathy"],
                 icon: Bot,
@@ -319,7 +319,7 @@ export default function LandingPage() {
               },
               {
                 step: "03",
-                title: "Capture & Notify",
+                title: "Wake Up to Closed Deals",
                 benefit: "Stay in control and follow up immediately — no lost revenue.",
                 features: ["SMS notifications", "Full transcripts", "Voicemail audio", "Leads stored securely"],
                 icon: Zap,
@@ -327,7 +327,7 @@ export default function LandingPage() {
               },
               {
                 step: "04",
-                title: "Human Fallback",
+                title: "Sleep Through Emergencies",
                 benefit: "Escalates complex calls automatically so zero opportunities fall through.",
                 features: ["Continuous learning", "Smart escalation", "Zero missed ops", "No tech headache"],
                 icon: UserCheck,
