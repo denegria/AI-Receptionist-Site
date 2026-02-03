@@ -37,9 +37,7 @@ function PilotHeroCard() {
           <span className="text-xl md:text-2xl text-slate-400 font-bold">Total</span>
         </div>
         <p className="text-xl md:text-2xl font-medium mb-12 max-w-2xl text-slate-300 leading-relaxed">
-          Get <span className="text-white font-black">Full Access</span> to our HVAC-trained AI. 
-          We'll set everything up and handle your calls for 14 days. 
-          No commitment. No brainer.
+          Get full access to our HVAC-trained AI. We'll set everything up and handle your calls for 14 days. $49 for 14 days. If it’s not a fit, cancel anytime.
         </p>
         
         <a href="/sign-in" className="w-full sm:w-auto bg-cta text-white px-12 py-6 rounded-2xl font-black text-2xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow mb-8 flex items-center justify-center gap-3">
@@ -125,14 +123,14 @@ export default function LandingPage() {
               <a href="#how-it-works" className="text-sm font-semibold hover:text-cta transition-colors">How It Works</a>
               <a href="#pricing" className="text-sm font-semibold hover:text-cta transition-colors">Pricing</a>
               <a href="/sign-in" className="bg-cta text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-cta-glow">
-                Start Free Trial
+                Get Started (14-Day Trial)
               </a>
             </motion.div>
 
             {/* Mobile Nav Controls */}
             <div className="flex items-center gap-4 md:hidden">
               <a href="/sign-in" className="bg-cta text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-orange-600 transition-all shadow-cta-glow">
-                Start Trial
+                Get Started (14-Day Trial)
               </a>
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600 glass rounded-lg">
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -154,7 +152,7 @@ export default function LandingPage() {
                 <a href="#how-it-works" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>How It Works</a>
                 <a href="#pricing" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>Pricing</a>
                 <a href="/sign-in" className="block w-full text-center bg-cta text-white px-5 py-3 rounded-xl font-bold shadow-cta-glow" onClick={() => setIsMenuOpen(false)}>
-                  Start Free Trial Now
+                  Get Started (14-Day Trial)
                 </a>
               </div>
             </motion.div>
@@ -191,7 +189,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="font-headline text-5xl md:text-7xl lg:text-7xl font-black leading-[1.05] mb-8 tracking-tight text-gradient"
               >
-                Stop Losing $10,000/Month to Missed Calls
+                Answer every HVAC call—day, night, weekends.
               </motion.h1>
 
               <motion.p
@@ -201,7 +199,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed font-medium"
               >
-                Your front desk is burning money while you sleep. We stop the bleeding—tonight.
+                An HVAC-trained AI receptionist that books jobs, captures details, and escalates true emergencies—so you don’t lose the customer to the next contractor.
               </motion.p>
 
               <motion.div
@@ -212,7 +210,7 @@ export default function LandingPage() {
                 className="flex flex-col sm:flex-row gap-5 mb-12"
               >
                 <a href="/sign-in" className="bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
-                  Start Your 14-Day Trial <Zap className="w-5 h-5" />
+                  Start 14-Day Trial <Zap className="w-5 h-5" />
                 </a>
               </motion.div>
 
@@ -220,15 +218,15 @@ export default function LandingPage() {
               <div className="flex flex-wrap gap-x-8 gap-y-4 text-sm font-black text-slate-500">
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-cta" />
-                  <span>48-Hr Setup</span>
+                  <span>Typically live in 48 hours</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Bot className="w-5 h-5 text-cta" />
-                  <span>24/7 Cover</span>
+                  <span>24/7 answering (after-hours available)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-cta" />
-                  <span>100% Capture</span>
+                  <span>No more ‘straight to voicemail’</span>
                 </div>
               </div>
             </div>
@@ -248,11 +246,11 @@ export default function LandingPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="bg-cta/10 text-cta px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-cta/20 flex items-center gap-2">
                     <div className="w-2 h-2 bg-cta rounded-full animate-ping"></div>
-                    Hear It Live — Call Now
+                    Call the demo line
                   </div>
 
                   <h3 className="font-headline text-2xl font-black text-primary mb-2 italic">"Your AI Receptionist"</h3>
-                  <p className="text-slate-600 font-bold text-sm mb-8">Call (555) 321-DEMO and Treat Us Like a Pissed-Off Customer.</p>
+                  <p className="text-slate-600 font-bold text-sm mb-8">Call (555) 321-DEMO (Try real HVAC scenarios)</p>
 
                   <div className="w-full bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-white mb-8 group hover:border-cta/30 transition-all">
                     <div className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-2">Demo Line</div>
@@ -269,7 +267,7 @@ export default function LandingPage() {
                   </div>
 
                   <div className="w-full">
-                    <p className="text-[10px] uppercase font-black tracking-[0.2em] text-slate-400 mb-4">Try these phrases:</p>
+                    <p className="text-[10px] uppercase font-black tracking-[0.2em] text-slate-400 mb-4 text-center">Act like a rushed homeowner. Ask for emergency service. Try to book a time.</p>
                     <div className="grid grid-cols-1 gap-2">
                       {[
                         "Ask about a broken AC",
@@ -294,7 +292,7 @@ export default function LandingPage() {
                     </div>
                     <div className="flex items-center gap-1.5">
                       <Zap className="w-3 h-3 text-cta" />
-                      1,247 calls this week
+                      Example demo volume
                     </div>
                   </div>
                 </div>
@@ -312,11 +310,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Trusted by Forward-Thinking HVAC Pros</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale">
-            {/* Placeholders for logos - using text for now to avoid image dependencies */}
-            <span className="font-headline text-xl font-bold text-slate-700">ServicePro</span>
-            <span className="font-headline text-xl font-bold text-slate-700">CoolAir Tech</span>
-            <span className="font-headline text-xl font-bold text-slate-700">HVAC Masters</span>
-            <span className="font-headline text-xl font-bold text-slate-700">ClimateRight</span>
+            <span className="font-headline text-xl font-bold text-slate-700">Built for HVAC workflows</span>
+            <span className="font-headline text-xl font-bold text-slate-700">Live in ~48 hours</span>
+            <span className="font-headline text-xl font-bold text-slate-700">Call summaries by SMS</span>
+            <span className="font-headline text-xl font-bold text-slate-700">Escalation rules you control</span>
           </div>
         </div>
       </section>
@@ -330,8 +327,8 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">How Our AI Receptionist Works for Your HVAC Business</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Outcome-driven automation that puts you back in control of your time.</p>
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">What happens when a customer calls (and you can’t answer)</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Answer → qualify → schedule/escalate → text you everything.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
@@ -349,7 +346,7 @@ export default function LandingPage() {
               },
               {
                 step: "02",
-                title: "Never Sound Desperate Again",
+                title: "Sound professional on every call",
                 benefit: "Every customer gets a professional, HVAC-trained first impression.",
                 features: ["Natural voice", "Spam filtering", "Accurate triage", "Human-like empathy"],
                 icon: Bot,
@@ -365,7 +362,7 @@ export default function LandingPage() {
               },
               {
                 step: "04",
-                title: "Sleep Through Emergencies",
+                title: "Escalate true emergencies automatically",
                 benefit: "Escalates complex calls automatically so zero opportunities fall through.",
                 features: ["Continuous learning", "Smart escalation", "Zero missed ops", "No tech headache"],
                 icon: UserCheck,
@@ -429,8 +426,7 @@ export default function LandingPage() {
             >
               <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight text-gradient">Already Using an Answering Service?</h2>
               <p className="text-slate-600 text-xl font-medium leading-relaxed mb-10">
-                Most HVAC companies already have voicemail, on-call technicians, or third-party answering services.
-                While they cover calls, they don't solve the real problems:
+                Answering services pick up calls. But they don’t book work the way an HVAC dispatcher does. Our AI books jobs, captures details, and escalates true emergencies.
               </p>
 
               <div className="space-y-6">
@@ -486,7 +482,8 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <p className="text-slate-600 text-xl font-bold">Your phones are your pipeline. Protect it 24/7.</p>
             <a href="/sign-in" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow text-center">
               Start Your 14-Day Risk-Free Trial
             </a>
@@ -504,7 +501,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">Don’t Take Our Word for It</h2>
+            <h2 className="font-headline text-4xl md:text-5xl font-black mb-6 tracking-tight">HVAC teams use us to stop missed-call losses—without burning out techs.</h2>
             <p className="text-slate-600 max-w-2xl mx-auto text-lg font-medium">Real HVAC businesses are replacing their call centers with AI.</p>
           </motion.div>
 
@@ -571,7 +568,7 @@ export default function LandingPage() {
               </div>
 
               <div className="mb-8 text-center sm:text-left">
-                <h3 className="font-headline text-3xl font-black mb-2 text-primary uppercase tracking-tight">Full Plan</h3>
+                <h3 className="font-headline text-3xl font-black mb-2 text-primary uppercase tracking-tight">24/7 Coverage</h3>
                 <p className="text-slate-500 font-bold text-sm">Complete coverage for serious HVAC operations</p>
               </div>
 
@@ -590,7 +587,7 @@ export default function LandingPage() {
                   { text: "Human fallback", included: true },
                   { text: "Sentiment Analysis (detect angry/urgent callers)", included: true },
                   { text: "Priority Alerts (escalate high-value leads)", included: true },
-                  { text: "CRM Integration (ServiceTitan, Housecall Pro)", included: true },
+                  { text: "CRM Integration (Beta)", included: true },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 text-base font-bold text-slate-700">
                     <CheckCircle2 className="w-5 h-5 text-cta shrink-0 mt-0.5" />
@@ -612,7 +609,7 @@ export default function LandingPage() {
               className="bg-slate-100/50 border border-slate-200 rounded-[40px] p-8 md:p-12 flex flex-col opacity-80"
             >
               <div className="mb-8 text-center sm:text-left">
-                <h3 className="font-headline text-2xl font-black mb-2 text-slate-500 uppercase tracking-tight">Basic Plan</h3>
+                <h3 className="font-headline text-2xl font-black mb-2 text-slate-500 uppercase tracking-tight">After-Hours Coverage</h3>
                 <p className="text-slate-400 font-bold text-sm">After-hours protection for growing businesses</p>
               </div>
 
@@ -623,12 +620,13 @@ export default function LandingPage() {
 
               <div className="space-y-4 mb-12 flex-grow">
                 {[
-                  { text: "After-hours answering (6pm – 8am + weekends)", included: true },
+                  { text: "After-hours (6pm–8am + weekends)", included: true },
                   { text: "1 Calendar integration", included: true },
                   { text: "SMS notifications", included: true },
                   { text: "Full transcripts", included: true },
                   { text: "Spam filtering", included: true },
                   { text: "Human fallback", included: true },
+                  { text: "Instant SMS summary after every call", included: true },
                   { text: "Sentiment Analysis", included: false },
                   { text: "Priority Alerts", included: false },
                   { text: "CRM Integration", included: false },
@@ -650,11 +648,16 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-20 text-center space-y-4">
             <p className="inline-flex items-center gap-2 text-slate-400 font-black uppercase tracking-[0.15em] text-[10px] glass py-3 px-6 rounded-full border border-slate-200/50">
               <ShieldAlert className="w-4 h-4 text-cta" />
               All plans include: 48-hr setup • No contracts • Cancel anytime
             </p>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest max-w-2xl mx-auto leading-relaxed">
+              <p>Phone carrier fees may apply. Call volume/minutes calculated at checkout.</p>
+              <p>Setup includes call forwarding/new number.</p>
+              <p>Emergency escalation rules configured during onboarding.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -665,16 +668,16 @@ export default function LandingPage() {
           <h2 className="font-headline text-3xl font-black mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-8">
             <div>
-              <h3 className="font-bold text-lg mb-2 text-primary">How long does setup take?</h3>
-              <p className="text-slate-600 font-medium">We can have your AI receptionist live within 48 hours. We handle all technical configuration, prompt engineering, and testing for you.</p>
+              <h3 className="font-bold text-lg mb-2 text-primary">Does it book jobs or just take messages?</h3>
+              <p className="text-slate-600 font-medium">It books jobs directly into your calendar and captures all the details you need.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-2 text-primary">What if the AI makes a mistake?</h3>
-              <p className="text-slate-600 font-medium">Our system uses a "Human-in-the-Loop" safety mechanism. If the AI detects low confidence, it automatically routes to your fallback or takes a detailed message.</p>
+              <h3 className="font-bold text-lg mb-2 text-primary">How does it handle emergencies?</h3>
+              <p className="text-slate-600 font-medium">We configure custom escalation rules with you. Real emergencies (no heat, gas leaks) are transferred or texted to you immediately.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-2 text-primary">Do I need to be technical?</h3>
-              <p className="text-slate-600 font-medium">Not at all. This is a fully managed service. We manage the infrastructure so you can focus on running your business.</p>
+              <h3 className="font-bold text-lg mb-2 text-primary">Can it transfer calls to my on-call tech?</h3>
+              <p className="text-slate-600 font-medium">Yes. If a call meets your emergency criteria, we forward it to the correct on-call number immediately.</p>
             </div>
           </div>
         </div>
@@ -689,8 +692,8 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="bg-white rounded-[40px] shadow-2xl p-8 md:p-12 border border-slate-100"
           >
-            <h2 className="font-headline text-3xl font-black mb-4 text-center text-gradient">14-Day Money-Back Guarantee</h2>
-            <p className="text-center text-slate-600 mb-10 font-medium">Fill out the form below to begin your 48-hour setup.</p>
+            <h2 className="font-headline text-3xl font-black mb-4 text-center text-gradient">Get set up in 48 hours</h2>
+            <p className="text-center text-slate-600 mb-10 font-medium">Tell us where to route calls and who to escalate to. We’ll handle the rest.</p>
 
             {formStatus === "success" ? (
               <motion.div
@@ -734,7 +737,7 @@ export default function LandingPage() {
                   type="submit"
                   className="w-full bg-cta text-white font-black py-5 rounded-2xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow disabled:opacity-50 disabled:cursor-not-allowed text-xl"
                 >
-                  {formStatus === "submitting" ? "Sending..." : "Request Setup Now"}
+                  {formStatus === "submitting" ? "Sending..." : "Request My Setup Call"}
                 </button>
 
               </form>
@@ -762,12 +765,11 @@ export default function LandingPage() {
 
       {/* Mobile Sticky Bottom CTA */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-40 flex items-center justify-between gap-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-        <div className="text-xs font-medium text-slate-500">
-          <span className="block font-bold text-slate-900 text-sm">14-Day Guarantee</span>
-          No risk, cancel anytime.
+        <div className="text-xs font-medium text-slate-500 text-left">
+          <span className="block font-bold text-slate-900 text-sm">Live in 48 hours. Cancel anytime.</span>
         </div>
         <a href="/sign-in" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
-          Start Trial
+          Get Started
         </a>
       </div>
     </div >
