@@ -1,0 +1,68 @@
+// Prisma schema placeholder for the dashboard backend.
+//
+// This repo currently uses Supabase for most data access, but some deployments
+// may prefer Prisma-managed storage for payments/verification state.
+//
+// To use:
+// 1) Add `prisma` + `@prisma/client` dependencies
+// 2) Set DATABASE_URL
+// 3) Run `npx prisma generate` and your preferred migration workflow
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String?
+  phoneE164 String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  paymentMethods   PaymentMethod[]
+  phoneVerifications PhoneVerification[]
+}
+
+model PaymentMethod {
+  id              String   @id @default(cuid())
+  userId          String
+  stripeCustomerId String?
+  stripePaymentMethodId String?
+  stripeSetupIntentId   String?
+  brand           String?
+  last4           String?
+  expMonth        Int?
+  expYear         Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([stripeCustomerId])
+}
+
+model PhoneVerification {
+  id         String   @id @default(cuid())
+  userId     String
+  toE164     String
+  twilioSid  String?
+  status     String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([toE164])
+  @@index([twilioSid])
+}
