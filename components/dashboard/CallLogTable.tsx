@@ -5,10 +5,10 @@ import { PhoneIncoming, PhoneOutgoing, Play, FileText, MoreHorizontal } from 'lu
 import { motion } from 'framer-motion';
 
 const MOCK_CALLS = [
-  { id: '1', type: 'incoming', caller: '(555) 123-4567', time: '10:30 AM', duration: '2:15', status: 'completed' },
-  { id: '2', type: 'outgoing', caller: '(555) 987-6543', time: '9:15 AM', duration: '1:45', status: 'completed' },
-  { id: '3', type: 'incoming', caller: '(555) 456-7890', time: 'Yesterday', duration: '5:10', status: 'completed' },
-  { id: '4', type: 'incoming', caller: '(555) 222-3333', time: 'Yesterday', duration: '0:45', status: 'missed' },
+  { id: '1', type: 'incoming', caller: '(814) 893-1268', time: '10:30 AM', duration: '2:15', status: 'completed' },
+  { id: '2', type: 'outgoing', caller: '(814) 893-1268', time: '9:15 AM', duration: '1:45', status: 'completed' },
+  { id: '3', type: 'incoming', caller: '(814) 893-1268', time: 'Yesterday', duration: '5:10', status: 'completed' },
+  { id: '4', type: 'incoming', caller: '(814) 893-1268', time: 'Yesterday', duration: '0:45', status: 'missed' },
 ];
 
 export const CallLogTable = () => {

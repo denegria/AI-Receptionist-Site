@@ -13,7 +13,7 @@ export const AudioPlayer = () => {
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-lg font-semibold text-slate-800">Call Recording</h3>
-            <p className="text-sm text-slate-500">(555) 123-4567 • Feb 5, 10:30 AM</p>
+            <p className="text-sm text-slate-500">(814) 893-1268 • Feb 5, 10:30 AM</p>
           </div>
           <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400">
             <Volume2 size={20} />
