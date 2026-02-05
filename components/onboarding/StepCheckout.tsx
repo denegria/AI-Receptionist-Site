@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useOnboardingStore } from '@/dashboard/store/useOnboardingStore';
+import { useOnboardingStore } from '@/store/useOnboardingStore';
 import { CreditCard, Lock } from 'lucide-react';
 
 export const StepCheckout = () => {

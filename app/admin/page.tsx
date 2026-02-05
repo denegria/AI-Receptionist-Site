@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { TenantTable } from '@/dashboard/components/admin/TenantTable';
-import { RevenueChart } from '@/dashboard/components/admin/RevenueChart';
+import { TenantTable } from '@/components/admin/TenantTable';
+import { RevenueChart } from '@/components/admin/RevenueChart';
 import { Activity, Users, CreditCard, ShieldAlert, Download, Search, Terminal, Database, Server, Cpu } from 'lucide-react';
 
 export default function AdminDashboardPage() {

@@ -1,4 +1,4 @@
-import { OnboardingLayout } from '@/dashboard/components/onboarding/OnboardingLayout';
+import { OnboardingLayout } from '@/components/onboarding/OnboardingLayout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

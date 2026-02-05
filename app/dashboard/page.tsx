@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { CallLogTable } from '@/dashboard/components/dashboard/CallLogTable';
-import { AudioPlayer } from '@/dashboard/components/dashboard/AudioPlayer';
-import { AppointmentList } from '@/dashboard/components/dashboard/AppointmentList';
-import { StatCard } from '@/dashboard/components/dashboard/StatCard';
+import { CallLogTable } from '@/components/dashboard/CallLogTable';
+import { AudioPlayer } from '@/components/dashboard/AudioPlayer';
+import { AppointmentList } from '@/components/dashboard/AppointmentList';
+import { StatCard } from '@/components/dashboard/StatCard';
 import { Phone, CalendarCheck, Clock, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 

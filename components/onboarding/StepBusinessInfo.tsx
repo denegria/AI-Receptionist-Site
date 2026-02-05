@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useOnboardingStore } from '@/dashboard/store/useOnboardingStore';
+import { useOnboardingStore } from '@/store/useOnboardingStore';
 
 export const StepBusinessInfo = () => {
   const { data, updateData } = useOnboardingStore();

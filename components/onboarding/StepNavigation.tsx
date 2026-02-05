@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useOnboardingStore } from '@/dashboard/store/useOnboardingStore';
+import { useOnboardingStore } from '@/store/useOnboardingStore';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 export const StepNavigation = () => {

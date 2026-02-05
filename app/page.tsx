@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   PhoneCall,
@@ -37,16 +38,16 @@ function PilotHeroCard() {
           <span className="text-xl md:text-2xl text-slate-400 font-bold">Total</span>
         </div>
         <p className="text-xl md:text-2xl font-medium mb-12 max-w-2xl text-slate-300 leading-relaxed">
-          Get full access to our HVAC-trained AI. We'll set everything up and handle your calls for 14 days. $49 for 14 days. If it’s not a fit, cancel anytime.
+          Get full access to our HVAC-trained AI. We&apos;ll set everything up and handle your calls for 14 days. $49 for 14 days. If it&rsquo;s not a fit, cancel anytime.
         </p>
         
-        <a href="/sign-in" className="w-full sm:w-auto bg-cta text-white px-12 py-6 rounded-2xl font-black text-2xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow mb-8 flex items-center justify-center gap-3">
+        <Link href="/sign-in" className="w-full sm:w-auto bg-cta text-white px-12 py-6 rounded-2xl font-black text-2xl hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow mb-8 flex items-center justify-center gap-3">
           Start Your Pilot Now <Zap className="w-6 h-6 fill-current" />
-        </a>
+        </Link>
         
-        <a href="#full-plans" className="text-slate-400 hover:text-white text-base font-bold underline underline-offset-8 transition-colors">
+        <Link href="#full-plans" className="text-slate-400 hover:text-white text-base font-bold underline underline-offset-8 transition-colors">
           Skip to Full Plans
-        </a>
+        </Link>
       </div>
     </motion.div>
   );
@@ -120,18 +121,18 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               className="hidden md:flex items-center gap-8"
             >
-              <a href="#how-it-works" className="text-sm font-semibold hover:text-cta transition-colors">How It Works</a>
-              <a href="#pricing" className="text-sm font-semibold hover:text-cta transition-colors">Pricing</a>
-              <a href="/sign-in" className="bg-cta text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-cta-glow">
+              <Link href="#how-it-works" className="text-sm font-semibold hover:text-cta transition-colors">How It Works</Link>
+              <Link href="#pricing" className="text-sm font-semibold hover:text-cta transition-colors">Pricing</Link>
+              <Link href="/sign-in" className="bg-cta text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-orange-600 transition-all shadow-cta-glow">
                 Get Started (14-Day Trial)
-              </a>
+              </Link>
             </motion.div>
 
             {/* Mobile Nav Controls */}
             <div className="flex items-center gap-4 md:hidden">
-              <a href="/sign-in" className="bg-cta text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-orange-600 transition-all shadow-cta-glow">
+              <Link href="/sign-in" className="bg-cta text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-orange-600 transition-all shadow-cta-glow">
                 Get Started (14-Day Trial)
-              </a>
+              </Link>
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600 glass rounded-lg">
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -149,11 +150,11 @@ export default function LandingPage() {
               className="md:hidden bg-white/95 backdrop-blur-lg border-b border-gray-100 overflow-hidden"
             >
               <div className="px-4 py-6 space-y-4">
-                <a href="#how-it-works" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>How It Works</a>
-                <a href="#pricing" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>Pricing</a>
-                <a href="/sign-in" className="block w-full text-center bg-cta text-white px-5 py-3 rounded-xl font-bold shadow-cta-glow" onClick={() => setIsMenuOpen(false)}>
+                <Link href="#how-it-works" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>How It Works</Link>
+                <Link href="#pricing" className="block text-base font-bold" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+                <Link href="/sign-in" className="block w-full text-center bg-cta text-white px-5 py-3 rounded-xl font-bold shadow-cta-glow" onClick={() => setIsMenuOpen(false)}>
                   Get Started (14-Day Trial)
-                </a>
+                </Link>
               </div>
             </motion.div>
           )}
@@ -209,9 +210,9 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-5 mb-12"
               >
-                <a href="/sign-in" className="bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
+                <Link href="/sign-in" className="bg-cta text-white px-8 py-5 rounded-2xl font-black text-lg hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-cta-glow flex items-center justify-center gap-3">
                   Start 14-Day Trial <Zap className="w-5 h-5" />
-                </a>
+                </Link>
               </motion.div>
 
               {/* Trust Stats Row */}
@@ -249,7 +250,7 @@ export default function LandingPage() {
                     Call the demo line
                   </div>
 
-                  <h3 className="font-headline text-2xl font-black text-primary mb-2 italic">"Your AI Receptionist"</h3>
+                  <h3 className="font-headline text-2xl font-black text-primary mb-2 italic">&quot;Your AI Receptionist&quot;</h3>
                   <p className="text-slate-600 font-bold text-sm mb-8">Call (814) 893-1268 (Try real HVAC scenarios)</p>
 
                   <div className="w-full bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-white mb-8 group hover:border-cta/30 transition-all">
@@ -279,7 +280,7 @@ export default function LandingPage() {
                           key={i}
                           className="bg-slate-50/50 border border-slate-100 py-2.5 px-4 rounded-xl text-xs font-black text-slate-600 hover:bg-white hover:border-cta/20 hover:text-cta transition-all cursor-default"
                         >
-                          "{prompt}"
+                          &quot;{prompt}&quot;
                         </div>
                       ))}
                     </div>
@@ -383,7 +384,7 @@ export default function LandingPage() {
 
                 <div className="flex-grow">
                   <h3 className="font-headline text-xl font-black mb-3 tracking-tight leading-tight">{item.title}</h3>
-                  <p className="text-primary font-bold text-sm mb-6 leading-relaxed italic">"{item.benefit}"</p>
+                  <p className="text-primary font-bold text-sm mb-6 leading-relaxed italic">&quot;{item.benefit}&quot;</p>
 
                   <ul className="space-y-3 pt-6 border-t border-slate-200/50">
                     {item.features.map((feature, idx) => (
@@ -484,9 +485,9 @@ export default function LandingPage() {
 
           <div className="flex flex-col items-center gap-6 text-center">
             <p className="text-slate-600 text-xl font-bold">Your phones are your pipeline. Protect it 24/7.</p>
-            <a href="/sign-in" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow text-center">
+            <Link href="/sign-in" className="bg-cta text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 hover:scale-[1.05] active:scale-[0.98] transition-all shadow-cta-glow text-center">
               Start Your 14-Day Risk-Free Trial
-            </a>
+            </Link>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Zero Risk. Zero Setup Fees.</p>
           </div>
         </div>
@@ -526,9 +527,9 @@ export default function LandingPage() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-slate-50 p-10 rounded-[40px] border border-slate-100 flex flex-col gap-8 relative overflow-hidden h-full"
               >
-                <div className="text-cta opacity-10 absolute top-4 right-8 font-black text-[120px] select-none text-right">"</div>
+                <div className="text-cta opacity-10 absolute top-4 right-8 font-black text-[120px] select-none text-right">&quot;</div>
                 <p className="text-xl text-primary font-bold leading-relaxed relative z-10 italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <div className="mt-auto">
                   <div className="font-black text-lg text-primary">{testimonial.author}</div>
@@ -596,9 +597,9 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <a href="/sign-in" className="block w-full text-center bg-cta text-white px-8 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 transition-all shadow-cta-glow active:scale-95">
+              <Link href="/sign-in" className="block w-full text-center bg-cta text-white px-8 py-5 rounded-2xl font-black text-xl hover:bg-orange-600 transition-all shadow-cta-glow active:scale-95">
                 Start Full Plan
-              </a>
+              </Link>
             </motion.div>
 
             {/* Basic Tier (Muted) */}
@@ -642,9 +643,9 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <a href="/sign-in" className="block w-full text-center bg-white text-slate-500 border-2 border-slate-200 px-8 py-5 rounded-2xl font-black text-lg hover:border-slate-300 hover:bg-slate-50 transition-all active:scale-95">
+              <Link href="/sign-in" className="block w-full text-center bg-white text-slate-500 border-2 border-slate-200 px-8 py-5 rounded-2xl font-black text-lg hover:border-slate-300 hover:bg-slate-50 transition-all active:scale-95">
                 Start Basic Plan
-              </a>
+              </Link>
             </motion.div>
           </div>
 
@@ -705,7 +706,7 @@ export default function LandingPage() {
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-black mb-2">Request Received!</h3>
-                <p className="text-slate-600 font-medium">We'll reach out within 24 hours to begin your 48-hour setup.</p>
+                <p className="text-slate-600 font-medium">We&apos;ll reach out within 24 hours to begin your 48-hour setup.</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -768,9 +769,9 @@ export default function LandingPage() {
         <div className="text-xs font-medium text-slate-500 text-left">
           <span className="block font-bold text-slate-900 text-sm">Live in 48 hours. Cancel anytime.</span>
         </div>
-        <a href="/sign-in" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
+        <Link href="/sign-in" className="bg-cta text-white px-6 py-3 rounded-lg font-bold text-sm shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
           Get Started
-        </a>
+        </Link>
       </div>
     </div >
   );

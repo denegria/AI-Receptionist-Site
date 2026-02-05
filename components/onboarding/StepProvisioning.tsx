@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useOnboardingStore } from '@/dashboard/store/useOnboardingStore';
+import { useOnboardingStore } from '@/store/useOnboardingStore';
 import { CheckCircle2, Loader2, PartyPopper } from 'lucide-react';
 
 interface ProvisionState {
