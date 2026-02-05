@@ -1,43 +1,60 @@
 import { create } from 'zustand';
 
-interface OnboardingState {
-  step: number;
-  businessName: string;
-  firstName: string;
-  lastName: string;
-  timezone: string;
-  businessHours: {
-    enabled: boolean; // Simple Mon-Fri toggle
-    start: string;
-    end: string;
-  };
-  knowledgeBase: string;
-  selectedNumber: string | null;
-  planId: 'starter' | 'pro' | 'enterprise';
-  
-  setStep: (step: number) => void;
-  setBusinessInfo: (info: { businessName: string; firstName: string; lastName: string; timezone: string }) => void;
-  setBusinessHours: (hours: { enabled: boolean; start: string; end: string }) => void;
-  setKnowledgeBase: (kb: string) => void;
-  setSelectedNumber: (num: string) => void;
-  setPlanId: (id: 'starter' | 'pro' | 'enterprise') => void;
+export interface BusinessHours {
+  monFriOnly: boolean;
+  startTime: string;
+  endTime: string;
 }
 
-export const useOnboardingStore = create<OnboardingState>((set) => ({
-  step: 1,
-  businessName: '',
-  firstName: '',
-  lastName: '',
-  timezone: 'America/New_York',
-  businessHours: { enabled: true, start: '09:00', end: '17:00' },
-  knowledgeBase: '',
-  selectedNumber: null,
-  planId: 'pro',
+interface OnboardingData {
+  businessName: string;
+  businessDescription: string;
+  timezone: string;
+  businessHours: BusinessHours;
+  knowledgeBase: string;
+  selectedNumber: string | null;
+  planId: string | null;
+  stripePaymentId: string | null;
+}
 
+interface OnboardingStore {
+  step: number;
+  data: OnboardingData;
+  setStep: (step: number) => void;
+  updateData: (fields: Partial<OnboardingData>) => void;
+  updateHours: (hours: Partial<BusinessHours>) => void;
+  nextStep: () => void;
+  prevStep: () => void;
+}
+
+export const useOnboardingStore = create<OnboardingStore>((set) => ({
+  step: 1,
+  data: {
+    businessName: '',
+    businessDescription: '',
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    businessHours: {
+      monFriOnly: true,
+      startTime: '09:00',
+      endTime: '17:00',
+    },
+    knowledgeBase: '',
+    selectedNumber: null,
+    planId: 'price_pro',
+    stripePaymentId: null,
+  },
   setStep: (step) => set({ step }),
-  setBusinessInfo: (info) => set((state) => ({ ...state, ...info })),
-  setBusinessHours: (hours) => set({ businessHours: hours }),
-  setKnowledgeBase: (kb) => set({ knowledgeBase: kb }),
-  setSelectedNumber: (num) => set({ selectedNumber: num }),
-  setPlanId: (id) => set({ planId: id }),
+  updateData: (fields) =>
+    set((state) => ({
+      data: { ...state.data, ...fields },
+    })),
+  updateHours: (hours) =>
+    set((state) => ({
+      data: {
+        ...state.data,
+        businessHours: { ...state.data.businessHours, ...hours },
+      },
+    })),
+  nextStep: () => set((state) => ({ step: state.step + 1 })),
+  prevStep: () => set((state) => ({ step: Math.max(1, state.step - 1) })),
 }));
