@@ -3,10 +3,14 @@ import { Users, PhoneCall, DollarSign, Activity } from 'lucide-react';
 import { SystemHealthCard } from '@/components/admin/SystemHealthCard';
 import { ActivityFeed } from '@/components/admin/ActivityFeed';
 import { supabase } from '@/lib/supabase';
+import { checkAdminAccess } from '@/lib/admin-allowlist';
 
 export const dynamic = 'force-dynamic';
 
 const AdminDashboardPage = async () => {
+  // Defense-in-depth: check admin access server-side
+  await checkAdminAccess();
+
   // Fetch Total Clients
   const { count: totalClients } = await supabase
     .from('clients')

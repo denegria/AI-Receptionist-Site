@@ -1,5 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
+import { isAdminEmail } from './lib/admin-allowlist';
 
 const isPublicRoute = createRouteMatcher([
   '/',
@@ -8,7 +9,8 @@ const isPublicRoute = createRouteMatcher([
   '/api/webhooks(.*)',
 ]);
 
-const isAdminRoute = createRouteMatcher(['/dashboard/admin(.*)']);
+// Protect all /admin routes, including /dashboard/admin
+const isAdminRoute = createRouteMatcher(['/admin(.*)', '/dashboard/admin(.*)']);
 const isDashboardRoute = createRouteMatcher(['/dashboard(.*)']);
 
 export default clerkMiddleware(async (auth, req) => {
@@ -26,12 +28,21 @@ export default clerkMiddleware(async (auth, req) => {
     return NextResponse.redirect(signInUrl);
   }
 
-  // Require admin role for admin routes
+  // Lock down admin routes with email allowlist
   if (isAdminRoute(req)) {
-    const role = (sessionClaims?.publicMetadata as any)?.role;
-    if (role !== 'org:admin') {
-      // Redirect non-admins to regular dashboard
-      return NextResponse.redirect(new URL('/dashboard', req.url));
+    // 1. If not authenticated, redirect to sign-in
+    if (!userId) {
+      const signInUrl = new URL('/sign-in', req.url);
+      signInUrl.searchParams.set('redirect_url', req.url);
+      return NextResponse.redirect(signInUrl);
+    }
+
+    // 2. If authenticated, check if email is in allowlist
+    const userEmail = sessionClaims?.email as string | undefined;
+    
+    if (!isAdminEmail(userEmail)) {
+      // If authenticated but not allowlisted -> return 404 (safest)
+      return new NextResponse(null, { status: 404 });
     }
   }
 
