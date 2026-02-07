@@ -2,16 +2,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### Canonical (recommended)
+Run from the **workspace root** using the repo runner (prevents CWD mistakes and reduces reinstall churn):
+
+```bash
+./scripts/dev.sh frontend:dev
+```
+
+### Direct (fallback)
+If you intentionally want to run commands directly inside `dashboard/`:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
